@@ -41,11 +41,14 @@
             // 
             // gvLoaiSP
             // 
+            this.gvLoaiSP.AllowUserToAddRows = false;
+            this.gvLoaiSP.AllowUserToDeleteRows = false;
             this.gvLoaiSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvLoaiSP.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gvLoaiSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvLoaiSP.Location = new System.Drawing.Point(12, 36);
             this.gvLoaiSP.Name = "gvLoaiSP";
+            this.gvLoaiSP.ReadOnly = true;
             this.gvLoaiSP.Size = new System.Drawing.Size(562, 213);
             this.gvLoaiSP.TabIndex = 0;
             this.gvLoaiSP.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvLoaiSP_MouseClick);
@@ -76,7 +79,7 @@
             this.chỉnhSửaToolStripMenuItem,
             this.xoáToolStripMenuItem});
             this.menuGribView.Name = "menuGribView";
-            this.menuGribView.Size = new System.Drawing.Size(153, 70);
+            this.menuGribView.Size = new System.Drawing.Size(128, 48);
             this.menuGribView.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuGribView_ItemClicked);
             // 
             // chỉnhSửaToolStripMenuItem
