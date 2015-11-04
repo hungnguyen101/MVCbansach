@@ -1,0 +1,61 @@
+﻿@model List<MVCbansach.ProductCategoryService.ProductCategory>
+
+<!--Top Menu(Horizontal Categories) Start-->
+<nav id="menu">
+    <ul>
+        <li class="home">@Html.ActionLink("Trang chủ", "Index", "Home") </li>
+        <li class="categories_hor">
+            <a>Danh mục</a>
+            <div>              
+                    <div class="column">
+                        <a href="category.html">Tổng</a>
+                        <div>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    <li><a href="@Url.Action("ProductByCategory", "Product", new { id = item.ID })">@item.Name</a></li>
+                                }                           
+                            </ul>
+                        </div>
+                    </div>
+               
+                <!--Danh mục mẫu
+                <div class="column">
+                    <a href="category.html">Ngoại ngữ</a>
+                    <div>
+                        <ul>
+                            <li><a href="category.html">Tiếng Anh (0)</a></li>
+                            <li><a href="category.html">Tiếng Hoa (0)</a></li>
+                            <li><a href="category.html">Tiếng Nhật (1)</a></li>
+                            <li><a href="category.html">Tiếng Hàn (1)</a></li>
+                        </ul>
+                    </div>
+                </div>
+               -->
+            </div>
+        </li>
+        <li>
+            <a target="_blank" href="#">Headers</a>
+            <div>
+                <ul>
+                    <li><a href="index-2.html">Header Style 1</a></li>
+                    <li><a href="header-footer-2.html">Header Style 2</a></li>
+                    <li><a href="header-footer-3.html">Header Style 3</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a>Thông tin</a>
+            <div>
+                <ul>
+                    <li><a href="about-us.html">Về chúng tôi</a></li>
+                    <li><a href="about-us.html">Thông tin giao hàng</a></li>
+                    <li><a href="about-us.html">Privacy Policy</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>@Html.ActionLink("Liên hệ", "Index", "Contact")</li>
+    </ul>
+</nav>
+<!--Top Menu(Horizontal Categories) End-->

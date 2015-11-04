@@ -1,0 +1,31 @@
+﻿@model List<MVCbansach.ProductCategoryService.ProductCategory>
+<!--Category Start -->
+<div class="box">
+    <div class="box-heading">Danh mục</div>
+    <div class="box-content box-category">
+        <ul id="cat_accordion">
+            @foreach (var item in Model)
+            {
+                <li class="custom_id @item.ID">
+                    <a class="active" href="@Url.Action("ProductByCategory", "Product", new { id = item.ID })">@item.Name</a> <span class="down"></span>
+                </li>
+            }           
+            <!--Dữ liệu mẫu
+            <li class="custom_id18">
+                <a class="" href="category.html">Sách Văn Học - Tiểu Thuyết</a> <span class="down"></span>
+                <ul>
+                    <li class="custom_id65"> <a class="" href="category.html">Hài hước - truyện cười (50)</a></li>
+                    <li class="custom_id46"><a class="" href="category.html">Huyền bí - giả tưởng (60)</a></li>
+                    <li class="custom_id45"><a class="" href="category.html">Kinh dị</a></li>
+                    <li class="custom_id51"><a class="" href="category.html">Thơ - phóng sự</a></li>
+                    <li class="custom_id74"><a class="" href="category.html">Tác phẩm kinh điển</a></li>
+                    <li class="custom_id75"><a class="" href="category.html">Đam mỹ</a></li>
+                    <li class="custom_id75"><a class="" href="category.html">Truyện trinh thám</a></li>
+                </ul>
+            </li>
+           -->
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.dcjqaccordion.js"></script>
+<!--Category End -->

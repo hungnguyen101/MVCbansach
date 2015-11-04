@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D43846B6-1FA2-49B3-88C0-33101E7AA4B3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVCbansach</RootNamespace>
+    <AssemblyName>MVCbansach</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="jQuery.Validation.Unobtrusive.Native">
+      <HintPath>..\packages\jQuery.Validation.Unobtrusive.Native.MVC5.1.2.0\lib\net45\jQuery.Validation.Unobtrusive.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\avatar\no-avatar_male.png" />
+    <Content Include="Content\avatar\no_avatar_female.png" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\carousel.css" />
+    <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\slideshow.css" />
+    <Content Include="Content\css\stylesheet.css" />
+    <Content Include="Content\image\arrows.png" />
+    <Content Include="Content\image\attention.png" />
+    <Content Include="Content\image\back-to-top.png" />
+    <Content Include="Content\image\bullet-1.png" />
+    <Content Include="Content\image\bullet-d.png" />
+    <Content Include="Content\image\bullet-dark.png" />
+    <Content Include="Content\image\button-search.png" />
+    <Content Include="Content\image\cart-bg.png" />
+    <Content Include="Content\image\cart-icon.png" />
+    <Content Include="Content\image\close.png" />
+    <Content Include="Content\image\contact-icon-1.png" />
+    <Content Include="Content\image\contact-icon-10.png" />
+    <Content Include="Content\image\contact-icon-2.png" />
+    <Content Include="Content\image\contact-icon-3.png" />
+    <Content Include="Content\image\contact-icon-4.png" />
+    <Content Include="Content\image\contact-icon-5.png" />
+    <Content Include="Content\image\contact-icon-6.png" />
+    <Content Include="Content\image\contact-icon-7.png" />
+    <Content Include="Content\image\contact-icon-8.png" />
+    <Content Include="Content\image\contact-icon-9.png" />
+    <Content Include="Content\image\contact-icon.png" />
+    <Content Include="Content\image\facebook.png" />
+    <Content Include="Content\image\favicon.png" />
+    <Content Include="Content\image\flags\gb.png" />
+    <Content Include="Content\image\flags\tr.png" />
+    <Content Include="Content\image\googleplus.png" />
+    <Content Include="Content\image\home-icon.png" />
+    <Content Include="Content\image\list-icon.png" />
+    <Content Include="Content\image\loading.gif" />
+    <Content Include="Content\image\logo.png" />
+    <Content Include="Content\image\mplus.png" />
+    <Content Include="Content\image\patterns\27.png" />
+    <Content Include="Content\image\payment_2checkout.png" />
+    <Content Include="Content\image\payment_american.png" />
+    <Content Include="Content\image\payment_discover.png" />
+    <Content Include="Content\image\payment_maestro.png" />
+    <Content Include="Content\image\payment_paypal.png" />
+    <Content Include="Content\image\pinterest.png" />
+    <Content Include="Content\image\plus.png" />
+    <Content Include="Content\image\price-tag.png" />
+    <Content Include="Content\image\product\apple_cinema_30-162x162.jpg" />
+    <Content Include="Content\image\product\apple_cinema_30-210x210.jpg" />
+    <Content Include="Content\image\product\apple_cinema_30-45x45.jpg" />
+    <Content Include="Content\image\product\brand_logo.jpg" />
+    <Content Include="Content\image\product\canon_eos_5d_1-162x162.jpg" />
+    <Content Include="Content\image\product\canon_eos_5d_1-350x350.jpg" />
+    <Content Include="Content\image\product\canon_eos_5d_1-500x500.jpg" />
+    <Content Include="Content\image\product\canon_eos_5d_2-350x350.jpg" />
+    <Content Include="Content\image\product\canon_eos_5d_2-500x500.jpg" />
+    <Content Include="Content\image\product\canon_eos_5d_3-350x350.jpg" />
+    <Content Include="Content\image\product\canon_eos_5d_3-500x500.jpg" />
+    <Content Include="Content\image\product\htc_touch_hd_1-162x162.jpg" />
+    <Content Include="Content\image\product\htc_touch_hd_1-210x210.jpg" />
+    <Content Include="Content\image\product\iphone_1-162x162.jpg" />
+    <Content Include="Content\image\product\iphone_1-210x210.jpg" />
+    <Content Include="Content\image\product\iphone_1-47x47.jpg" />
+    <Content Include="Content\image\product\ipod_classic_1-162x162.jpg" />
+    <Content Include="Content\image\product\ipod_classic_1-45x45.jpg" />
+    <Content Include="Content\image\product\ipod_nano_1-162x162.jpg" />
+    <Content Include="Content\image\product\ipod_touch_1-210x210.jpg" />
+    <Content Include="Content\image\product\Jeep-Casual-Shoes-210x210.jpg" />
+    <Content Include="Content\image\product\Jeep-Casual-Shoes-45x45.jpg" />
+    <Content Include="Content\image\product\lotto-sports-shoes-white-210x210.jpg" />
+    <Content Include="Content\image\product\lotto-sports-shoes-white-45x45.jpg" />
+    <Content Include="Content\image\product\lotto-sports-shoes-white-47x47.jpg" />
+    <Content Include="Content\image\product\nikon_d300_1-162x162.jpg" />
+    <Content Include="Content\image\product\nikon_d300_1-210x210.jpg" />
+    <Content Include="Content\image\product\palm_treo_pro_1-162x162.jpg" />
+    <Content Include="Content\image\product\reebok-men-sports-shoes-210x210.jpg" />
+    <Content Include="Content\image\product\responsive.jpg" />
+    <Content Include="Content\image\product\samsung_syncmaster_941bw-210x210.jpg" />
+    <Content Include="Content\image\product\samsung_tab_1-210x210.jpg" />
+    <Content Include="Content\image\product\small-banner1-220x350.jpg" />
+    <Content Include="Content\image\product\sony_vaio_1-210x210.jpg" />
+    <Content Include="Content\image\product\sony_vaio_1-45x45.jpg" />
+    <Content Include="Content\image\remove-small.png" />
+    <Content Include="Content\image\remove.png" />
+    <Content Include="Content\image\rss.png" />
+    <Content Include="Content\image\slider\slide-1.jpg" />
+    <Content Include="Content\image\slider\slide-2.jpg" />
+    <Content Include="Content\image\slider\slide-3.jpg" />
+    <Content Include="Content\image\stars-1.png" />
+    <Content Include="Content\image\stars-2.png" />
+    <Content Include="Content\image\stars-3.png" />
+    <Content Include="Content\image\stars-4.png" />
+    <Content Include="Content\image\stars-5.png" />
+    <Content Include="Content\image\success.png" />
+    <Content Include="Content\image\twitter.png" />
+    <Content Include="Content\image\twitt_feeds-icon.png" />
+    <Content Include="Content\image\twitt_feeds-icon1.png" />
+    <Content Include="Content\image\twitt_feeds-icon10.png" />
+    <Content Include="Content\image\twitt_feeds-icon2.png" />
+    <Content Include="Content\image\twitt_feeds-icon3.png" />
+    <Content Include="Content\image\twitt_feeds-icon4.png" />
+    <Content Include="Content\image\twitt_feeds-icon5.png" />
+    <Content Include="Content\image\twitt_feeds-icon6.png" />
+    <Content Include="Content\image\twitt_feeds-icon7.png" />
+    <Content Include="Content\image\twitt_feeds-icon8.png" />
+    <Content Include="Content\image\twitt_feeds-icon9.png" />
+    <Content Include="Content\image\update.png" />
+    <Content Include="Content\image\vimeo.png" />
+    <Content Include="Content\image\warning.png" />
+    <Content Include="Content\image\zoom-plus.png" />
+    <Content Include="Content\js\cloud_zoom.js" />
+    <Content Include="Content\js\colorbox\colorbox.css" />
+    <Content Include="Content\js\colorbox\jquery.colorbox-min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\html5.js" />
+    <Content Include="Content\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\js\jquery.dcjqaccordion.js" />
+    <Content Include="Content\js\jquery.easing-1.3.min.js" />
+    <Content Include="Content\js\jquery.flexslider.js" />
+    <Content Include="Content\js\jquery.jcarousel.min.js" />
+    <Content Include="Content\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\js\tabs.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\BookStoreOnline.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BookStoreOnline.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BookStoreOnline.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
+      <LastGenOutput>BookStoreOnline.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BookStoreOnline.edmx.diagram">
+      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BookStoreOnline.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
+      <LastGenOutput>BookStoreOnline.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Service References\ProductCategoryService\MVCbansach.ProductCategoryService.ProductCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AuthorSevice\MVCbansach.AuthorSevice.Author.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\OrderService\MVCbansach.OrderService.OderDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\OrderService\MVCbansach.OrderService.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AccountService\MVCbansach.AccountService.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ProductService\configuration91.svcinfo" />
+    <None Include="Service References\ProductService\configuration.svcinfo" />
+    <Content Include="Service References\ProductService\MVCbansach.ProductService.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductService\MVCbansach.ProductService.findAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductService\MVCbansach.ProductService.findByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductService\MVCbansach.ProductService.findProuctsByCategoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductService\MVCbansach.ProductService.insertResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductService\MVCbansach.ProductService.updateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ProductService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductCategoryService\configuration91.svcinfo" />
+    <None Include="Service References\ProductCategoryService\configuration.svcinfo" />
+    <None Include="Service References\ProductCategoryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AuthorSevice\configuration91.svcinfo" />
+    <None Include="Service References\AuthorSevice\configuration.svcinfo" />
+    <None Include="Service References\AuthorSevice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OrderService\configuration91.svcinfo" />
+    <None Include="Service References\OrderService\configuration.svcinfo" />
+    <None Include="Service References\OrderService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AccountService\configuration91.svcinfo" />
+    <None Include="Service References\AccountService\configuration.svcinfo" />
+    <None Include="Service References\AccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config" />
+    <Content Include="WebGoc\about-us.html" />
+    <Content Include="WebGoc\cart.html" />
+    <Content Include="WebGoc\category-list.html" />
+    <Content Include="WebGoc\category.html" />
+    <Content Include="WebGoc\checkout.html" />
+    <Content Include="WebGoc\contact-us.html" />
+    <Content Include="WebGoc\css\carousel.css" />
+    <Content Include="WebGoc\css\flexslider.css" />
+    <Content Include="WebGoc\css\slideshow.css" />
+    <Content Include="WebGoc\css\stylesheet.css" />
+    <Content Include="WebGoc\elements.html" />
+    <Content Include="WebGoc\header-footer-2.html" />
+    <Content Include="WebGoc\header-footer-3.html" />
+    <Content Include="WebGoc\image\arrows.png" />
+    <Content Include="WebGoc\image\attention.png" />
+    <Content Include="WebGoc\image\back-to-top.png" />
+    <Content Include="WebGoc\image\bullet-1.png" />
+    <Content Include="WebGoc\image\bullet-d.png" />
+    <Content Include="WebGoc\image\bullet-dark.png" />
+    <Content Include="WebGoc\image\button-search.png" />
+    <Content Include="WebGoc\image\cart-bg.png" />
+    <Content Include="WebGoc\image\cart-icon.png" />
+    <Content Include="WebGoc\image\close.png" />
+    <Content Include="WebGoc\image\contact-icon-1.png" />
+    <Content Include="WebGoc\image\contact-icon-10.png" />
+    <Content Include="WebGoc\image\contact-icon-2.png" />
+    <Content Include="WebGoc\image\contact-icon-3.png" />
+    <Content Include="WebGoc\image\contact-icon-4.png" />
+    <Content Include="WebGoc\image\contact-icon-5.png" />
+    <Content Include="WebGoc\image\contact-icon-6.png" />
+    <Content Include="WebGoc\image\contact-icon-7.png" />
+    <Content Include="WebGoc\image\contact-icon-8.png" />
+    <Content Include="WebGoc\image\contact-icon-9.png" />
+    <Content Include="WebGoc\image\contact-icon.png" />
+    <Content Include="WebGoc\image\facebook.png" />
+    <Content Include="WebGoc\image\favicon.png" />
+    <Content Include="WebGoc\image\flags\gb.png" />
+    <Content Include="WebGoc\image\flags\tr.png" />
+    <Content Include="WebGoc\image\googleplus.png" />
+    <Content Include="WebGoc\image\home-icon.png" />
+    <Content Include="WebGoc\image\list-icon.png" />
+    <Content Include="WebGoc\image\loading.gif" />
+    <Content Include="WebGoc\image\logo.png" />
+    <Content Include="WebGoc\image\mplus.png" />
+    <Content Include="WebGoc\image\patterns\27.png" />
+    <Content Include="WebGoc\image\payment_2checkout.png" />
+    <Content Include="WebGoc\image\payment_american.png" />
+    <Content Include="WebGoc\image\payment_discover.png" />
+    <Content Include="WebGoc\image\payment_maestro.png" />
+    <Content Include="WebGoc\image\payment_paypal.png" />
+    <Content Include="WebGoc\image\pinterest.png" />
+    <Content Include="WebGoc\image\plus.png" />
+    <Content Include="WebGoc\image\price-tag.png" />
+    <Content Include="WebGoc\image\product\apple_cinema_30-162x162.jpg" />
+    <Content Include="WebGoc\image\product\apple_cinema_30-210x210.jpg" />
+    <Content Include="WebGoc\image\product\apple_cinema_30-45x45.jpg" />
+    <Content Include="WebGoc\image\product\brand_logo.jpg" />
+    <Content Include="WebGoc\image\product\canon_eos_5d_1-162x162.jpg" />
+    <Content Include="WebGoc\image\product\canon_eos_5d_1-350x350.jpg" />
+    <Content Include="WebGoc\image\product\canon_eos_5d_1-500x500.jpg" />
+    <Content Include="WebGoc\image\product\canon_eos_5d_2-350x350.jpg" />
+    <Content Include="WebGoc\image\product\canon_eos_5d_2-500x500.jpg" />
+    <Content Include="WebGoc\image\product\canon_eos_5d_3-350x350.jpg" />
+    <Content Include="WebGoc\image\product\canon_eos_5d_3-500x500.jpg" />
+    <Content Include="WebGoc\image\product\htc_touch_hd_1-162x162.jpg" />
+    <Content Include="WebGoc\image\product\htc_touch_hd_1-210x210.jpg" />
+    <Content Include="WebGoc\image\product\iphone_1-162x162.jpg" />
+    <Content Include="WebGoc\image\product\iphone_1-210x210.jpg" />
+    <Content Include="WebGoc\image\product\iphone_1-47x47.jpg" />
+    <Content Include="WebGoc\image\product\ipod_classic_1-162x162.jpg" />
+    <Content Include="WebGoc\image\product\ipod_classic_1-45x45.jpg" />
+    <Content Include="WebGoc\image\product\ipod_nano_1-162x162.jpg" />
+    <Content Include="WebGoc\image\product\ipod_touch_1-210x210.jpg" />
+    <Content Include="WebGoc\image\product\Jeep-Casual-Shoes-210x210.jpg" />
+    <Content Include="WebGoc\image\product\Jeep-Casual-Shoes-45x45.jpg" />
+    <Content Include="WebGoc\image\product\lotto-sports-shoes-white-210x210.jpg" />
+    <Content Include="WebGoc\image\product\lotto-sports-shoes-white-45x45.jpg" />
+    <Content Include="WebGoc\image\product\lotto-sports-shoes-white-47x47.jpg" />
+    <Content Include="WebGoc\image\product\nikon_d300_1-162x162.jpg" />
+    <Content Include="WebGoc\image\product\nikon_d300_1-210x210.jpg" />
+    <Content Include="WebGoc\image\product\palm_treo_pro_1-162x162.jpg" />
+    <Content Include="WebGoc\image\product\reebok-men-sports-shoes-210x210.jpg" />
+    <Content Include="WebGoc\image\product\responsive.jpg" />
+    <Content Include="WebGoc\image\product\samsung_syncmaster_941bw-210x210.jpg" />
+    <Content Include="WebGoc\image\product\samsung_tab_1-210x210.jpg" />
+    <Content Include="WebGoc\image\product\small-banner1-220x350.jpg" />
+    <Content Include="WebGoc\image\product\sony_vaio_1-210x210.jpg" />
+    <Content Include="WebGoc\image\product\sony_vaio_1-45x45.jpg" />
+    <Content Include="WebGoc\image\remove-small.png" />
+    <Content Include="WebGoc\image\remove.png" />
+    <Content Include="WebGoc\image\rss.png" />
+    <Content Include="WebGoc\image\slider\slide-1.jpg" />
+    <Content Include="WebGoc\image\slider\slide-2.jpg" />
+    <Content Include="WebGoc\image\slider\slide-3.jpg" />
+    <Content Include="WebGoc\image\stars-1.png" />
+    <Content Include="WebGoc\image\stars-2.png" />
+    <Content Include="WebGoc\image\stars-3.png" />
+    <Content Include="WebGoc\image\stars-4.png" />
+    <Content Include="WebGoc\image\stars-5.png" />
+    <Content Include="WebGoc\image\success.png" />
+    <Content Include="WebGoc\image\twitter.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon1.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon10.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon2.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon3.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon4.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon5.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon6.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon7.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon8.png" />
+    <Content Include="WebGoc\image\twitt_feeds-icon9.png" />
+    <Content Include="WebGoc\image\update.png" />
+    <Content Include="WebGoc\image\vimeo.png" />
+    <Content Include="WebGoc\image\warning.png" />
+    <Content Include="WebGoc\image\zoom-plus.png" />
+    <Content Include="WebGoc\index-2.html" />
+    <Content Include="WebGoc\js\cloud_zoom.js" />
+    <Content Include="WebGoc\js\colorbox\colorbox.css" />
+    <Content Include="WebGoc\js\colorbox\jquery.colorbox-min.js" />
+    <Content Include="WebGoc\js\custom.js" />
+    <Content Include="WebGoc\js\html5.js" />
+    <Content Include="WebGoc\js\jquery-1.7.1.min.js" />
+    <Content Include="WebGoc\js\jquery.dcjqaccordion.js" />
+    <Content Include="WebGoc\js\jquery.easing-1.3.min.js" />
+    <Content Include="WebGoc\js\jquery.flexslider.js" />
+    <Content Include="WebGoc\js\jquery.jcarousel.min.js" />
+    <Content Include="WebGoc\js\jquery.nivo.slider.pack.js" />
+    <Content Include="WebGoc\js\tabs.js" />
+    <Content Include="WebGoc\login.html" />
+    <Content Include="WebGoc\nhung file da sua lai.txt" />
+    <Content Include="WebGoc\product.html" />
+    <Content Include="WebGoc\register.html" />
+    <Content Include="WebGoc\sitemap.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ProductCategoryController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\About.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Author.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookStoreOnline.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookStoreOnline.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookStoreOnline.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookStoreOnline.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Content.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContentTag.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Feedback.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Footer.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Menu.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MenuType.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OderDetail.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaymentMethod.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductCategory.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shipping.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Slide.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemConfig.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tag.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserGroup.cs">
+      <DependentUpon>BookStoreOnline.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ProductService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductCategoryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AuthorSevice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Layout\NguoiDungLayout.cshtml" />
+    <Content Include="Content\image\Descr.WD3" />
+    <Content Include="Content\image\flags\Descr.WD3" />
+    <Content Include="Content\image\patterns\Descr.WD3" />
+    <Content Include="Content\image\product\Descr.WD3" />
+    <Content Include="Content\image\slider\Descr.WD3" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Product\_SearchProduct.cshtml" />
+    <Content Include="Views\Account\_HeaderPartial.cshtml" />
+    <Content Include="Views\Cart\_Cart.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\_LeftPartPartial.cshtml" />
+    <Content Include="Views\Contact\_MiddlePartPartial.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\_LeftPartPartial.cshtml" />
+    <Content Include="Views\About\_MiddlePartPartial.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\_MiddlePartPartial.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Checkout\_MiddlePartPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\MyAccount.cshtml" />
+    <Content Include="Views\Product\AllProduct.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Account\List.cshtml" />
+    <Content Include="Views\Account\Auth.cshtml" />
+    <None Include="Service References\ProductService\product.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\product1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\product2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\ProductService.wsdl" />
+    <None Include="Service References\ProductCategoryService\productcategory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\productcategory1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\productcategory2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\ProductCategoryService.wsdl" />
+    <None Include="Service References\AuthorSevice\author.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorSevice\author1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorSevice\author2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorSevice\AuthorService.wsdl" />
+    <None Include="Service References\OrderService\order.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\order1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\order2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\OrderService.wsdl" />
+    <Content Include="Views\ProductCategory\_NavMenuPartial.cshtml" />
+    <Content Include="Views\Product\LeftProductCategory.cshtml" />
+    <Content Include="Views\Product\LeftTopHot.cshtml" />
+    <Content Include="Views\Product\LeftNewArrivedProduct.cshtml" />
+    <Content Include="Views\Product\LeftPromotionProduct.cshtml" />
+    <Content Include="Views\Product\LeftFilter.cshtml" />
+    <Content Include="Views\Product\ProductByCategory.cshtml" />
+    <None Include="Service References\AccountService\account.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\account1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\account2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService.wsdl" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="WebGoc\image\Descr.WD3" />
+    <Content Include="WebGoc\image\flags\Descr.WD3" />
+    <Content Include="WebGoc\image\patterns\Descr.WD3" />
+    <Content Include="WebGoc\image\product\Descr.WD3" />
+    <Content Include="WebGoc\image\slider\Descr.WD3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ProductService\" />
+    <WCFMetadataStorage Include="Service References\ProductCategoryService\" />
+    <WCFMetadataStorage Include="Service References\AuthorSevice\" />
+    <WCFMetadataStorage Include="Service References\OrderService\" />
+    <WCFMetadataStorage Include="Service References\AccountService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1121</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1121/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

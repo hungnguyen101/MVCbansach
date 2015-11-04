@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>@ViewBag.Title</title>
+    <link href="image/favicon.png" rel="icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="clean modern and elegant corporate look eCommerce html template">
+    <meta name="author" content="">
+    <!-- CSS Part Start-->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/slideshow.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/flexslider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/colorbox/colorbox.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/carousel.css" media="screen" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- CSS Part End-->
+    <!-- JS Part Start-->
+    <script type="text/javascript" src="~/Content/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript" src="~/Content/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="~/Content/js/jquery.easing-1.3.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/colorbox/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="~/Content/js/tabs.js"></script>
+    <script type="text/javascript" src="~/Content/js/cloud_zoom.js"></script>
+    <script type="text/javascript" src="~/Content/js/jquery.dcjqaccordion.js"></script>
+    <script type="text/javascript" src="~/Content/js/custom.js"></script>
+    <script type="text/javascript" src="~/Content/js/html5.js"></script>
+    <!-- JS Part End-->
+    <!-- Google Fonts (Droid Sans) Start -->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans&amp;v1' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=&amp;v1' rel='stylesheet' type='text/css'>
+    <!-- Google Fonts (Droid Sans) End -->
+</head>
+<body>
+    <div class="wrapper-box">
+        <div class="main-wrapper">
+            <!--Header Part Start-->
+            <header id="header">
+
+                <!--Nav menu-->
+                @{ Html.RenderAction("_HeaderPartial", "Account"); }
+                
+                <section class="hsecond">
+                    <div id="logo"><a href="@Url.Action("Index", "Home")"><img src="~/Content/image/logo.png" title="Polishop" alt="Polishop" /></a></div>
+                    
+                    <!--Search product-->
+                    @{ Html.RenderAction("_SearchProduct", "Product"); }                       
+                    
+                    <!--Shopping cart-->
+                    @{ Html.RenderAction("_Cart", "Cart"); }
+                                               
+                    <div class="clear"></div>
+                </section>
+
+                <!--Nav menu-->  
+                @{ Html.RenderAction("_NavMenuPartial", "ProductCategory"); } 
+                  
+            </header>
+            <!--Header Part End-->
+            <div id="container">
+                
+                    @RenderBody()
+                
+                <div class="clear"></div>
+
+
+                </div>
+        </div>
+        <!--Footer Part Start-->
+        <footer id="footer">
+            <div class="fpart-inner">
+
+                <div class="column">
+                    <h3>Hỗ trợ khách hàng</h3>
+                    <ul>
+                        <li>Hotline: 1900-6035</li>
+                        <li><a href="#">Các câu hỏi thường gặp</a></li>
+                        <li><a href="#">Gửi email tới hotro@tiki.vn</a></li>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Phương thức vận chuyển</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Tài khoản của bạn</h3>
+                    <ul>
+                        <li>@Html.ActionLink("Đăng nhập", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Đăng ký", "Register", "Account")</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Về Tiki.vn</h3>
+                    <ul>
+                        <li>@Html.ActionLink("Giới thiệu Tiki.vn", "Index", "About")</li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Hợp tác & Liên kết</h3>
+                    <ul>
+                        <li><a href="#">Bán hàng cùng Tiki.vn</a></li>
+                        <li><a href="#">Foody.vn - Ăn gì ở đâu</a></li>
+                        <li><a href="#">iVIVU.com - Đặt khách sạn giá rẻ</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Details Start-->
+                <div class="contact contact_icon">
+                    <h3>Liện hệ với chúng tôi</h3>
+                    <ul>
+                        <li class="address">Central Square, 22 Hoi Wing Road, Tuen Mun, New Delhi, India</li>
+                        <li class="mobile">+91 9896989598</li>
+                        <li class="fax">+91 9896989598</li>
+                        <li class="email"><a href="mailto:info@contact.com">info@contact.com</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Details End-->
+                <div class="clear"></div>
+                <div id="powered">
+                    <!-- Payment Images Icon Start-->
+                    <div class="payments_types part3"> <img src="~/Content/image/payment_paypal.png" alt="paypal" title="PayPal"> <img src="~/Content/image/payment_american.png" alt="american-express" title="American Express"> <img src="~/Content/image/payment_2checkout.png" alt="2checkout" title="2checkout"> <img src="~/Content/image/payment_maestro.png" alt="maestro" title="Maestro"> <img src="~/Content/image/payment_discover.png" alt="discover" title="Discover"> </div>
+                    <!-- Payment Images Icon End-->
+                    <!-- Powered by Text Start-->
+                    <div class="powered_text part3">
+                        <p>© 2015 - Bản quyền của Công Ty Cổ Phần Ti Ki - <a target="_blank" href="http://harnishdesign.net/">Tiki.vn</a><br /></p>
+                    </div>
+                    <!-- Powered by Text End-->
+                    <!-- Follow Social Icons Start-->
+                    <div class="social part3"> <a href="http://facebook.com/harnishdesign" target="_blank"><img src="~/Content/image/facebook.png" alt="Facebook" title="Facebook"></a> <a href="https://twitter.com/#!/harnishdesign" target="_blank"><img src="~/Content/image/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img src="~/Content/image/googleplus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img src="~/Content/image/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img src="~/Content/image/rss.png" alt="RSS" title="RSS"> </a> <a href="http://www.vimeo.com/#" target="_blank"> <img src="~/Content/image/vimeo.png" alt="Vimeo" title="Vimeo"> </a> </div>
+                    <!-- Follow Social Icons End-->
+                    <div class="clear"></div>
+                </div>
+                <!-- Back to Top Button Start-->
+                <div class="back-to-top" id="back-top"><a title="Back to Top" href="javascript:void(0)" class="backtotop">Top</a></div>
+                <!-- Back to Top Button End-->
+            </div>
+        </footer>
+        <!--Footer Part End-->
+    </div>
+</body>
+</html>

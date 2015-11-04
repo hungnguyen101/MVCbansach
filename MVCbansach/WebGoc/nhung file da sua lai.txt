@@ -1,0 +1,4 @@
+category.html
+index-2.html
+contact-us.html
+about-us.html

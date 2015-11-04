@@ -1,0 +1,200 @@
+﻿@model List<MVCbansach.ProductService.Product>
+       
+
+<div id="content">
+    <!-- Nivo Slider Start -->
+    <section class="slider-wrapper">
+        <div id="slideshow" class="nivoSlider"> <a class="nivo-imageLink" href="#"><img src="~/Content/image/slider/slide-1.jpg" alt="slide-1" /></a> <a class="nivo-imageLink" href="#"><img src="~/Content/image/slider/slide-2.jpg" alt="slide-2" /></a> <a class="nivo-imageLink" href="#"><img src="~/Content/image/slider/slide-3.jpg" alt="slide-3" /></a> </div>
+    </section>
+    <script type="text/javascript">
+        $(document).ready(function() {
+	        $('#slideshow').nivoSlider();
+        });
+    </script>
+    <!-- Nivo Slider End-->
+    <!-- Welcom Text Start-->
+    <div class="welcome">Chào mừng tới tiki.vn</div>
+    <p><strong>TIKI.VN</strong> Với mục tiêu tạo ra những trải nghiệm mua sắm trực tuyến tuyệt vời, Tiki.vn luôn nỗ lực không ngừng nhằm nâng cao chất lượng dịch vụ.</p>
+    <!-- Welcom Text End-->
+    <!-- Featured Product Start-->
+    <section class="box">
+        <div class="box-heading">SÁCH HOT</div>
+        <div class="box-content">
+            <div class="box-product">
+                <div class="flexslider featured_carousel">
+                    <ul class="slides">
+                        <!--SACH HOT slider-->
+                        
+                        @foreach (var item in Model.Take(10).OrderBy(n => n.CreatedAt).ToList())
+                        {
+                            <li>
+                                <div class="slide-inner">
+                                    <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)"><img src="@item.MoreImages" alt="@item.Name" /></a></div>
+                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)">@item.Name </a></div>
+                                    <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
+                                    <div class="cart">
+                                        <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
+                                    </div>
+                                    <div class="rating"><img src="~/Content/image/stars-4.png" alt="dựa trên nhận xét." /></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        (function() {
+            // store the slider in a local variable
+            var $window = $(window),
+                flexslider;
+
+            // tiny helper function to add breakpoints
+            function getGridSize() {
+                return (window.innerWidth < 320) ? 1 :
+                       (window.innerWidth < 600) ? 2 :
+                       (window.innerWidth < 800) ? 3 :
+                       (window.innerWidth < 900) ? 4 : 5;
+            }
+            $window.load(function() {
+                $('#content .featured_carousel').flexslider({
+                    animation: "slide",
+                    animationLoop: false,
+                    slideshow: false,
+                    itemWidth: 210,
+                    minItems: getGridSize(), // use function to pull in initial value
+                    maxItems: getGridSize() // use function to pull in initial value
+                });
+            });
+        }());
+    </script>
+    <!-- Featured Product End-->
+    <!-- Product Tab Start-->
+    <section id="product-tab" class="product-tab">
+        <ul id="tabs" class="tabs">
+            <li><a href="#tab-latest">SÁCH MỚI</a></li>
+            <li><a href="#tab-bestseller">ĐƯỢC BÌNH CHỌN NHIỀU NHẤT</a></li>
+            <li><a href="#tab-special">GIẢM GIÁ</a></li>
+        </ul>
+        <div id="tab-latest" class="tab_content">
+            <div class="box-product">
+                <div class="flexslider latest_carousel_tab">
+                    <ul class="slides">
+                        <!--SACH MOI slider-->
+                        @foreach (var item in Model.Take(10).OrderBy(n => n.CreatedBy).ToList())
+                        {
+                            <li>
+                                <div class="slide-inner">
+                                    <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)"><img src="@item.MoreImages" alt="@item.Name" /></a></div>
+                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)">@item.Name </a></div>
+                                    <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
+                                    <div class="cart">
+                                        <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
+                                    </div>
+                                    <div class="rating"><img src="~/Content/image/stars-4.png" alt="dựa trên nhận xét." /></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="tab-bestseller" class="tab_content">
+            <div class="box-product">
+                <div class="flexslider bestseller_carousel_tab">
+                    <ul class="slides">
+                        <!--DUOC BINH CHON slider-->
+                        @foreach (var item in Model.Take(10).ToList())
+                        {
+                            <li>
+                                <div class="slide-inner">
+                                    <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)"><img src="@item.MoreImages" alt="@item.Name" /></a></div>
+                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)">@item.Name </a></div>
+                                    <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
+                                    <div class="cart">
+                                        <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
+                                    </div>
+                                    <div class="rating"><img src="~/Content/image/stars-4.png" alt="dựa trên nhận xét." /></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="tab-special" class="tab_content">
+            <div class="box-product">
+                <div class="flexslider special_carousel_tab">
+                    <ul class="slides">
+                        <!--GIAM GIA slider-->
+                        @foreach (var item in Model.Take(7).OrderBy(n => n.PromotionPrice).ToList())
+                        {
+                            <li>
+                                <div class="slide-inner">
+                                    <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)"><img src="@item.MoreImages" alt="@item.Name" /></a></div>
+                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)">@item.Name </a></div>
+                                    <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
+                                    <div class="cart">
+                                        <input type="button" value="Thêm vào giỏ" class="button" />
+                                    </div>
+                                    <div class="rating"><img src="~/Content/image/stars-4.png" alt="dựa trên nhận xét." /></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        (function() {
+            // store the slider in a local variable
+            var $window = $(window),
+                flexslider;
+            // tiny helper function to add breakpoints
+            function getGridSize() {
+                return (window.innerWidth < 320) ? 1 :
+                       (window.innerWidth < 600) ? 2 :
+                       (window.innerWidth < 800) ? 3 :
+                       (window.innerWidth < 900) ? 4 : 5;
+            }
+            $window.load(function() {
+                $('#product-tab .featured_carousel_tab, #product-tab .latest_carousel_tab, #product-tab .bestseller_carousel_tab, #product-tab .special_carousel_tab').flexslider({
+                    animation: "slide",
+                    animationLoop: false,
+                    slideshow: false,
+                    itemWidth: 210,
+                    minItems: getGridSize(), // use function to pull in initial value
+                    maxItems: getGridSize(), // use function to pull in initial value
+                    start: function(){
+                        $("#product-tab .tab_content").addClass("deactive");
+                        $("#product-tab .tab_content:first").removeClass("deactive"); //Show first tab content
+                    } });
+            });
+
+            $(document).ready(function() {
+                //Default Action
+                $("ul#tabs li:first").addClass("active").show(); //Activate first tab
+                //On Click Event
+                $("ul#tabs li").click(function() {
+                    $("ul#tabs li").removeClass("active"); //Remove any "active" class
+                    $(this).addClass("active"); //Add "active" class to selected tab
+                    $("#product-tab .tab_content").hide();
+                    var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+                    $(activeTab).fadeIn(); //Fade in the active content
+                    return false;
+                });
+            });}());
+    </script>
+    <!-- Product Tab End-->
+</div>
+
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}

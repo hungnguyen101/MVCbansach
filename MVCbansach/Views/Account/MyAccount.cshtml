@@ -1,0 +1,119 @@
+﻿@model MVCbansach.AccountService.Account
+<!--Middle Part Start-->
+<div id="content">
+    <!--Breadcrumb Part Start-->
+    <div class="breadcrumb"> <a href="@Url.Action("Index", "Home", null)">Trang chủ</a> » <a href="@Url.Action("MyAccount", "Account")">Tài khoản của tôi</a></div>
+    <!--Breadcrumb Part End-->
+
+    <h1>Tài khoản của tôi</h1>
+    <div class="checkout">
+        <div class="checkout-heading">Thông tin của tôi</div>
+        <div class="checkout-content" style="display: block;">
+            @if (Session["SuccessMessage"] != null)
+            {
+                <p class="success">@Session["SuccessMessage"] </p>
+                Session["SuccessMessage"] = null;
+            }
+            
+            <div class="left">
+                <h2>Hình đại diện</h2>
+                @using (Html.BeginForm("UploadFile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    if (Model.Avatar == null)
+                    {
+                        <img src="~/Content/avatar/no-avatar_male.png" height="200" width="200" />
+                    }
+                    else
+                    {
+                        <img src="~/Content/Upload/Avatar/@Model.Avatar" height="200" width="200" />
+                    }
+                    <br>
+                    <br>
+                    <input type="file" name="photo" class="button" value="Đăng ảnh" /> <br /><br />
+                    <span style="color:red">@ViewBag.FileName</span>
+                    <input type="submit" class="button" id="button-account" value="Thay đổi avatar">
+                    <br>
+                    <br>
+                }
+
+                
+            </div>
+            
+            <div class="right" id="login">
+                <h2>Thông tin cá nhân</h2>
+                @using (Html.BeginForm("UpdateInformation", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken() // chống nhập form nhiều lần
+                    @Html.ValidationSummary(true)
+                    <b>Tên tài khoản:</b><strong style="color:#d45c93">&nbsp;@Model.Username</strong><br><br />
+
+                    <b>Họ tên:</b><br>
+                    @Html.TextBoxFor(m => m.Name, new { @value = Model.Name })
+                    <br>
+                    <br>
+                    <b>Địa chỉ:</b><br>
+                    @Html.TextBoxFor(m => m.Address, new { @value = Model.Address })
+                    <br>
+                    <br>
+                    <b>Email:</b><br>
+                    @Html.TextBoxFor(m => m.Email, new { @value = Model.Email })
+                    <br>
+                    <br>
+                    <b>Số điện thoại:</b><br>
+                    @Html.TextBoxFor(m => m.Phone, new { @value = Model.Phone })
+                    <br>
+                    <br>
+                    <input type="submit" class="button" id="button-login" value="Cập nhật thông tin">
+                    <br>
+                    <br>
+                }
+
+                
+            </div>
+        </div>
+    </div>
+    <div class="checkout">
+        <div class="checkout-heading">QUẢN LÝ MẬT KHẨU</div>
+        <div class="checkout-content">
+            @if (Session["ErrorMessage"] != null)
+            {
+                <p class="error">@Session["ErrorMessage"] </p>
+                Session["ErrorMessage"] = null;
+            }
+            
+            @using (Html.BeginForm("UpdatePassword", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken() // chống nhập form nhiều lần
+                @Html.ValidationSummary(true)
+                <table class="form">
+                    <tbody>
+                        <tr>
+                            <td><span class="required">*</span> Mật khẩu hiện tại:</td>
+                            <td>@Html.TextBox("CurrentPassword", null, new { @type = "password", @class = "large-field" })</td>
+                        </tr>
+                        <tr>
+                            <td><span class="required">*</span> Mật khẩu mới:</td>
+                            <td>@Html.TextBox("NewPassword", null, new { @type = "password", @class = "large-field" })</td>
+                        </tr>
+                        <tr>
+                            <td><span class="required">*</span> Xác nhận mật khẩu mới:</td>
+                            <td>@Html.TextBox("ReNewPassword", null, new { @type = "password", @class = "large-field" })</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="buttons">
+                    <div class="left">
+                        <input type="submit" class="button" id="button-payment-address" value="Đổi mật khẩu">
+                    </div>
+                </div>
+            }        
+        </div>
+    </div>
+</div>
+<!--Middle Part End-->
+
+@{
+    ViewBag.Title = "Tài khoản của tôi";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+

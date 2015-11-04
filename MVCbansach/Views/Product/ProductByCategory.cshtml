@@ -1,0 +1,90 @@
+﻿@model PagedList.IPagedList<MVCbansach.ProductService.Product>
+@using PagedList.Mvc;
+@using PagedList;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div id="column-left">
+
+    <!--The category of product in the left-->
+    @{ Html.RenderAction("LeftProductCategory", "Product"); }
+
+    <!--The category of product in the left-->
+    @{ Html.RenderAction("LeftFilter", "Product"); }
+
+    <!--The category of product in the left-->
+    @{ Html.RenderAction("LeftTopHot", "Product"); }
+
+
+</div>
+<!--Middle Part Start-->
+<div id="content">
+    <!--Breadcrumb Part Start-->
+    <div class="breadcrumb"> <a href="index-2.html">Trang chủ</a> &raquo; <a href="#">Sách ngoại ngữ</a> &raquo; <a href="#">Sách tiếng Anh</a> </div>
+    <!--Breadcrumb Part End-->
+    <h1>Sách tiếng Anh</h1>
+    <div class="product-filter">
+        <div class="limit">
+            <b>Hiển thị theo số lượng:</b>
+            <select>
+                <option value="15" selected="selected">15</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <div class="sort">
+            <b>Sắp xếp theo:</b>
+            <select>
+                <option value="" selected="selected">Mặc định</option>
+                <option value="">Tên (A - Z)</option>
+                <option value="">Tên (Z - A)</option>
+                <option value="">Giá (Thấp &gt; Cao)</option>
+                <option value="">Giá (Cao &gt; Thấp)</option>
+                <option value="">Bình chọn (Cao nhất)</option>
+                <option value="">Bình chọn (Thấp nhất)</option>
+            </select>
+        </div>
+    </div>
+
+    <!--Product Grid Start-->
+    <div class="product-grid">
+        @foreach (var item in Model)
+        {
+            <div>
+                <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.ID})"><img src="@item.Images" title="@item.Name" alt="@item.MetaTitle " /></a></div>
+
+                @if (item.Name != null && item.Name.Length >= 35)
+                {
+                    item.Name = item.Name.Substring(0, 35) + "...";
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.ID }, null)</div>
+                }
+                else
+                {
+                    item.Name = item.Name;
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.ID }, null)<br /></div>
+                }
+
+                <div class="price">
+                    <span class="price-old">@item.Price ₫</span> <span class="price-new">@item.PromotionPrice ₫</span> <br />
+                    <span class="price-tax">Ex Tax: 90.00  ₫</span>
+                </div>
+                <div class="cart">
+                    <input type="button" value="Thêm vào giỏ" class="button" />
+                </div>
+                <div class="rating"><img src="~/Content/image/stars-4.png" alt="Dựa trên 10 bình luận" /></div>
+            </div>
+        }
+    </div>
+    <!--Product Grid End-->
+    <!--Pagination Part Start-->
+    <div class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("AllProduct", new { page = page }))
+    </div>
+    <!--Pagination Part End-->
+</div>
+<!--Middle Part End-->
+@{
+    ViewBag.Title = "Tất cả sản phẩm";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
