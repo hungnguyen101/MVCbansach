@@ -7,13 +7,14 @@ using MVCbansach.Models;
 using PagedList;
 using PagedList.Mvc;
 using MVCbansach.ProductService;
+using MVCbansach.ProductCategoryService;
 
 namespace MVCbansach.Controllers
 {
     public class ProductController : Controller
     {
         ProductService.ProductClient productServ = new ProductService.ProductClient();
-        ProductCategoryService.ProductCategoryClient proCategoryServ = new ProductCategoryService.ProductCategoryClient();
+        ProductCategoryService.CategoryClient proCategoryServ = new ProductCategoryService.CategoryClient();
 
         // GET: Product
         public ActionResult AllProduct(int page=1, int pageSize = 12)
@@ -66,7 +67,7 @@ namespace MVCbansach.Controllers
         }
         public PartialViewResult _NavMenuPartial()
         {
-            List<ProductCategoryService.ProductCategory> product = proCategoryServ.findAll().ToList();
+            List<ProductCategoryService.Category> product = proCategoryServ.findAll().ToList();
             return PartialView(product);
         }
         public PartialViewResult _SearchProduct()
@@ -75,7 +76,7 @@ namespace MVCbansach.Controllers
         }
         public PartialViewResult LeftProductCategory()
         {
-            List<ProductCategoryService.ProductCategory> product = proCategoryServ.findAll().ToList();
+            List<ProductCategoryService.Category> product = proCategoryServ.findAll().ToList();
             return PartialView(product);
         }
         public PartialViewResult LeftTopHot()

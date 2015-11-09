@@ -265,9 +265,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Service References\ProductCategoryService\MVCbansach.ProductCategoryService.ProductCategory.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\AuthorSevice\MVCbansach.AuthorSevice.Author.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -278,6 +275,19 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\AccountService\MVCbansach.AccountService.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ProductCategoryService\category.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\category1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\category2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\CategoryService.wsdl" />
+    <Content Include="Service References\ProductCategoryService\MVCbansach.ProductCategoryService.Category.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ProductService\configuration91.svcinfo" />
@@ -328,7 +338,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WebGoc\about-us.html" />
     <Content Include="WebGoc\cart.html" />
     <Content Include="WebGoc\category-list.html" />
@@ -626,16 +638,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ProductService\ProductService.wsdl" />
-    <None Include="Service References\ProductCategoryService\productcategory.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductCategoryService\productcategory1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductCategoryService\productcategory2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductCategoryService\ProductCategoryService.wsdl" />
     <None Include="Service References\AuthorSevice\author.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -674,6 +676,7 @@
     </None>
     <None Include="Service References\AccountService\AccountService.wsdl" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\LeftPartPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

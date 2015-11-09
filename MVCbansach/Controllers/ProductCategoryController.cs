@@ -9,7 +9,7 @@ namespace MVCbansach.Controllers
 {
     public class ProductCategoryController : Controller
     {
-        ProductCategoryService.ProductCategoryClient proCategoryServ = new ProductCategoryService.ProductCategoryClient();
+        ProductCategoryService.CategoryClient proCategoryServ = new ProductCategoryService.CategoryClient();
         // GET: ProductCategory
         public ActionResult Index()
         {
@@ -17,7 +17,7 @@ namespace MVCbansach.Controllers
         }
         public PartialViewResult _NavMenuPartial()
         {
-            List<ProductCategoryService.ProductCategory> productCategory = proCategoryServ.findAll().ToList();
+            List<ProductCategoryService.Category> productCategory = proCategoryServ.findAll().ToList();
             return PartialView(productCategory);
         }
 

@@ -36,10 +36,10 @@
                         {
                             <tr>
                                 <td class="image">
-                                    <a href="Product/ProductDetail/@item.Pr.ID"><img src="@item.Pr.Images" alt="@item.Pr.Name" height="50" width="50" /></a>
-                                    <input type="hidden" id="id_product" value="@item.Pr.ID" />
+                                    <a href="Product/ProductDetail/@item.Pr.id"><img src="@item.Pr.MoreImages" alt="@item.Pr.Name" height="50" width="50" /></a>
+                                    <input type="hidden" id="id_product" value="@item.Pr.id" />
                                 </td>
-                                <td class="name"><a href="Product/ProductDetail/@item.Pr.ID">@item.Pr.Name</a></td>
+                                <td class="name"><a href="Product/ProductDetail/@item.Pr.id">@item.Pr.Name</a></td>
                                 <td class="quantity">
                                     <input type="text" size="1" value="@item.Quantity" id="inputValue" name="inputValue" class="w30">
                                     &nbsp;
@@ -63,7 +63,7 @@
                                         }
                                     </script>
                                     &nbsp;
-                                    <a href="@Url.Action("Delete", "Cart", new { id = item.Pr.ID })"><img title="Xóa" alt="Xóa" src="~/Content/image/remove.png" onclick="location.href = '@Url.Action("Delete", "Cart", new { id = item.Pr.ID })'"></a>
+                                    <a href="@Url.Action("Delete", "Cart", new { id = item.Pr.id })"><img title="Xóa" alt="Xóa" src="~/Content/image/remove.png" onclick="location.href = '@Url.Action("Delete", "Cart", new { id = item.Pr.id })'"></a>
                                 </td>
                                 <td class="model">@item.Pr.Price</td>
                                 <td class="price">@item.Pr.PromotionPrice</td>

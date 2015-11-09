@@ -41,12 +41,11 @@
     <h1>@Model.Name</h1>
     <div class="product-info">
         <div class="left">
-            <div class="image"><a href="@Model.Images" title="@Model.Name" class="cloud-zoom colorbox" id='zoom1' rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false"><img src="@Model.Images" title="Canon EOS 5D" alt="Canon EOS 5D" id="image" /><span id="zoom-image"><i class="zoom_bttn"></i> Phóng to</span></a></div>
+            <div class="image"><a href="@Model.Thumbnail" title="@Model.Name" class="cloud-zoom colorbox" id='zoom1' rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false"><img src="@Model.Thumbnail" title="Canon EOS 5D" alt="Canon EOS 5D" id="image" /><span id="zoom-image"><i class="zoom_bttn"></i> Phóng to</span></a></div>
         </div>
         <div class="right">
             <div class="description">
-                <span>Brand:</span> <a href="#">Canon</a><br />
-                <span>Mã sách:</span> @Model.Code<br />
+                <span>Mã sách:</span> @Model.idSpecified<br />
                 <span>Còn lại:</span> @Model.Quantity<br />
                 <span>Trạng thái:</span> In Stock
             </div>
@@ -79,7 +78,7 @@
     <div id="tabs" class="htabs"> <a href="#tab-description">Mô tả</a> <a href="#tab-review">Nhận xét (0)</a> </div>
     <div id="tab-description" class="tab-content">
         <p>
-            @Model.Detail
+            @Model.Description
         </p>
 
     </div>

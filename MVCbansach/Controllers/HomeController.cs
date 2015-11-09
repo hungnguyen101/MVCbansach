@@ -11,7 +11,7 @@ namespace MVCbansach.Controllers
     {
         BookStoreOnlineEntities db = new BookStoreOnlineEntities();
         ProductService.ProductClient productServ = new ProductService.ProductClient();
-        ProductCategoryService.ProductCategoryClient productCategoryServ = new ProductCategoryService.ProductCategoryClient();
+        ProductCategoryService.CategoryClient productCategoryServ = new ProductCategoryService.CategoryClient();
         // GET: TrangChu
         public ActionResult Index()
         {

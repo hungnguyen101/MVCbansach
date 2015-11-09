@@ -1,4 +1,4 @@
-﻿@model List<MVCbansach.ProductCategoryService.ProductCategory>
+﻿@model List<MVCbansach.ProductCategoryService.Category>
 <!--Category Start -->
 <div class="box">
     <div class="box-heading">Danh mục</div>
@@ -6,8 +6,8 @@
         <ul id="cat_accordion">
             @foreach (var item in Model)
             {
-                <li class="custom_id @item.ID">
-                    <a class="active" href="@Url.Action("ProductByCategory", "Product", new { id = item.ID })">@item.Name</a> <span class="down"></span>
+                <li class="custom_id @item.id">
+                    <a class="active" href="@Url.Action("ProductByCategory", "Product", new { id = item.id })">@item.Name</a> <span class="down"></span>
                 </li>
             }           
             <!--Dữ liệu mẫu

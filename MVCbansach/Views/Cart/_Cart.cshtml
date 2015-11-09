@@ -35,7 +35,15 @@
                         }
                         @foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
                         {
-                            total = total + item.Quantity * (decimal)item.Pr.PromotionPrice;
+                            if (item.Pr.PromotionPrice == null)
+                            {
+                                total = total + item.Quantity * (decimal)item.Pr.Price;
+                            }
+                            else
+                            {
+                                total = total + item.Quantity * (decimal)item.Pr.PromotionPrice;
+                            }
+                            
                             Session["total"] =+ total;
                             Session["number"] = (int)Session["number"] +1;
                             <tr>

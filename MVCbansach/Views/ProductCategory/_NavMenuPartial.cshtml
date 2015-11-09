@@ -1,4 +1,4 @@
-﻿@model List<MVCbansach.ProductCategoryService.ProductCategory>
+﻿@model List<MVCbansach.ProductCategoryService.Category>
 
 <!--Top Menu(Horizontal Categories) Start-->
 <nav id="menu">
@@ -13,7 +13,7 @@
                             <ul>
                                 @foreach (var item in Model)
                                 {
-                                    <li><a href="@Url.Action("ProductByCategory", "Product", new { id = item.ID })">@item.Name</a></li>
+                                    <li><a href="@Url.Action("ProductByCategory", "Product", new { id = item.id })">@item.Name</a></li>
                                 }                           
                             </ul>
                         </div>

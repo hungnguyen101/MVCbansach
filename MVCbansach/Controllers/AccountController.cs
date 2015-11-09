@@ -76,10 +76,10 @@ namespace MVCbansach.Controllers
                 string CurrentPassword = Request["CurrentPassword"];
                 string ReNewPassword = Request["ReNewPassword"];
                 string NewPassword = Request["NewPassword"];
-                long AccountId = (long)Session["userid"];
+                long AccountId = Convert.ToInt64(Session["userid"]);
 
                 // find account
-                AccountService.Account account = serv.findById((long)AccountId);
+                AccountService.Account account = serv.findById(Convert.ToInt64(AccountId));
 
                 // indentify account
                 if (account.Password != getMd5Hash(CurrentPassword))
@@ -125,14 +125,14 @@ namespace MVCbansach.Controllers
             }
             else
             {
-                string Name = Request["Name"];
+                string Name = Request["Fullname"];
                 string Address = Request["Address"];
                 string Phone = Request["Phone"];
                 string Email = Request["Email"];
-                long AccountId = (long)Session["userid"];
+                long AccountId = Convert.ToInt64(Session["userid"]);
 
                 // find account
-                AccountService.Account account = serv.findById((long)AccountId);
+                AccountService.Account account = serv.findById(Convert.ToInt64(AccountId));
 
                 // set new information
                 account.Fullname = Name;
@@ -224,7 +224,7 @@ namespace MVCbansach.Controllers
                     var path = Path.Combine(Server.MapPath("~/Content/Upload/Avatar"), fileName);
                     photo.SaveAs(path);
 
-                    AccountService.Account account = serv.findById((long) Session["userid"]);
+                    AccountService.Account account = serv.findById(Convert.ToInt64(Session["userid"]));
 
                     // set new information
                     account.Avatar = fileName;
@@ -250,7 +250,10 @@ namespace MVCbansach.Controllers
             return View();
         }
 
-
+        public PartialViewResult LeftPartPartial()
+        {
+            return PartialView();
+        }
         public ActionResult MyAccount()
         {
             AccountService.Account Account = new AccountService.Account();
@@ -260,7 +263,7 @@ namespace MVCbansach.Controllers
             }
             else
             {
-                Account = serv.findById((long) Session["userid"]);
+                Account = serv.findById(Convert.ToInt64( Session["userid"]));
                 if (Account == null)
                 {
                     ViewBag.LoginSucess = "Account doesn't exist!";

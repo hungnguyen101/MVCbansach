@@ -51,17 +51,17 @@
         @foreach (var item in Model)
         {
             <div>
-                <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.ID})"><img src="@item.Images" title="@item.Name" alt="@item.MetaTitle " /></a></div>
+                <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})"><img src="@item.Thumbnail" title="@item.Name" alt="@item.Name " /></a></div>
 
                 @if (item.Name != null && item.Name.Length >= 35)
                 {
                     item.Name = item.Name.Substring(0, 35) + "...";
-                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.ID }, null)</div>
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id }, null)</div>
                 }
                 else
                 {
                     item.Name = item.Name;
-                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.ID }, null)<br /></div>
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id }, null)<br /></div>
                 }
 
                 <div class="price">

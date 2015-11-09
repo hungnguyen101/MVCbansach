@@ -15,63 +15,36 @@ namespace MVCbansach.ProductCategoryService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductCategory", Namespace="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
     [System.SerializableAttribute()]
-    public partial class ProductCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> CreatedByField;
+        private System.Nullable<System.DateTime> CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreatedDateField;
+        private string CreatedByField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DisplayOrderField;
+        private System.Nullable<System.DateTime> ModifiedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MetaDescriptionsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MetaKeyWordsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MetaTitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> ModifiedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> ModifiedDateField;
+        private string ModifiedByField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> ParentIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SeoTitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<bool> ShowOnHomeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SlugField;
+        private System.Nullable<int> ParentIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ThumbnailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> ViewCountField;
+        private int idField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -84,12 +57,25 @@ namespace MVCbansach.ProductCategoryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> CreatedBy {
+        public System.Nullable<System.DateTime> CreatedAt {
+            get {
+                return this.CreatedAtField;
+            }
+            set {
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
             get {
                 return this.CreatedByField;
             }
             set {
-                if ((this.CreatedByField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
                     this.CreatedByField = value;
                     this.RaisePropertyChanged("CreatedBy");
                 }
@@ -97,105 +83,27 @@ namespace MVCbansach.ProductCategoryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreatedDate {
+        public System.Nullable<System.DateTime> ModifiedAt {
             get {
-                return this.CreatedDateField;
+                return this.ModifiedAtField;
             }
             set {
-                if ((this.CreatedDateField.Equals(value) != true)) {
-                    this.CreatedDateField = value;
-                    this.RaisePropertyChanged("CreatedDate");
+                if ((this.ModifiedAtField.Equals(value) != true)) {
+                    this.ModifiedAtField = value;
+                    this.RaisePropertyChanged("ModifiedAt");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DisplayOrder {
-            get {
-                return this.DisplayOrderField;
-            }
-            set {
-                if ((this.DisplayOrderField.Equals(value) != true)) {
-                    this.DisplayOrderField = value;
-                    this.RaisePropertyChanged("DisplayOrder");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MetaDescriptions {
-            get {
-                return this.MetaDescriptionsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MetaDescriptionsField, value) != true)) {
-                    this.MetaDescriptionsField = value;
-                    this.RaisePropertyChanged("MetaDescriptions");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MetaKeyWords {
-            get {
-                return this.MetaKeyWordsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MetaKeyWordsField, value) != true)) {
-                    this.MetaKeyWordsField = value;
-                    this.RaisePropertyChanged("MetaKeyWords");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MetaTitle {
-            get {
-                return this.MetaTitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MetaTitleField, value) != true)) {
-                    this.MetaTitleField = value;
-                    this.RaisePropertyChanged("MetaTitle");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> ModifiedBy {
+        public string ModifiedBy {
             get {
                 return this.ModifiedByField;
             }
             set {
-                if ((this.ModifiedByField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
                     this.ModifiedByField = value;
                     this.RaisePropertyChanged("ModifiedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ModifiedDate {
-            get {
-                return this.ModifiedDateField;
-            }
-            set {
-                if ((this.ModifiedDateField.Equals(value) != true)) {
-                    this.ModifiedDateField = value;
-                    this.RaisePropertyChanged("ModifiedDate");
                 }
             }
         }
@@ -214,7 +122,7 @@ namespace MVCbansach.ProductCategoryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> ParentID {
+        public System.Nullable<int> ParentID {
             get {
                 return this.ParentIDField;
             }
@@ -222,45 +130,6 @@ namespace MVCbansach.ProductCategoryService {
                 if ((this.ParentIDField.Equals(value) != true)) {
                     this.ParentIDField = value;
                     this.RaisePropertyChanged("ParentID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SeoTitle {
-            get {
-                return this.SeoTitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SeoTitleField, value) != true)) {
-                    this.SeoTitleField = value;
-                    this.RaisePropertyChanged("SeoTitle");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<bool> ShowOnHome {
-            get {
-                return this.ShowOnHomeField;
-            }
-            set {
-                if ((this.ShowOnHomeField.Equals(value) != true)) {
-                    this.ShowOnHomeField = value;
-                    this.RaisePropertyChanged("ShowOnHome");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Slug {
-            get {
-                return this.SlugField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SlugField, value) != true)) {
-                    this.SlugField = value;
-                    this.RaisePropertyChanged("Slug");
                 }
             }
         }
@@ -279,27 +148,14 @@ namespace MVCbansach.ProductCategoryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Thumbnail {
+        public int id {
             get {
-                return this.ThumbnailField;
+                return this.idField;
             }
             set {
-                if ((object.ReferenceEquals(this.ThumbnailField, value) != true)) {
-                    this.ThumbnailField = value;
-                    this.RaisePropertyChanged("Thumbnail");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> ViewCount {
-            get {
-                return this.ViewCountField;
-            }
-            set {
-                if ((this.ViewCountField.Equals(value) != true)) {
-                    this.ViewCountField = value;
-                    this.RaisePropertyChanged("ViewCount");
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
                 }
             }
         }
@@ -315,108 +171,96 @@ namespace MVCbansach.ProductCategoryService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductCategoryService.IProductCategory")]
-    public interface IProductCategory {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductCategoryService.ICategory")]
+    public interface ICategory {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/findAll", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/findAllResponse")]
-        MVCbansach.ProductCategoryService.ProductCategory[] findAll();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/findAll", ReplyAction="http://tempuri.org/IModelOf_Category/findAllResponse")]
+        MVCbansach.ProductCategoryService.Category[] findAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/findAll", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/findAllResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory[]> findAllAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/findAll", ReplyAction="http://tempuri.org/IModelOf_Category/findAllResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category[]> findAllAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/findById", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/findByIdResponse")]
-        MVCbansach.ProductCategoryService.ProductCategory findById(long id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/findById", ReplyAction="http://tempuri.org/IModelOf_Category/findByIdResponse")]
+        MVCbansach.ProductCategoryService.Category findById(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/findById", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/findByIdResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory> findByIdAsync(long id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/findById", ReplyAction="http://tempuri.org/IModelOf_Category/findByIdResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category> findByIdAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/insert", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/insertResponse")]
-        long insert(MVCbansach.ProductCategoryService.ProductCategory entity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/insert", ReplyAction="http://tempuri.org/IModelOf_Category/insertResponse")]
+        long insert(MVCbansach.ProductCategoryService.Category entity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/insert", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/insertResponse")]
-        System.Threading.Tasks.Task<long> insertAsync(MVCbansach.ProductCategoryService.ProductCategory entity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/insert", ReplyAction="http://tempuri.org/IModelOf_Category/insertResponse")]
+        System.Threading.Tasks.Task<long> insertAsync(MVCbansach.ProductCategoryService.Category entity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/update", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/updateResponse")]
-        bool update(MVCbansach.ProductCategoryService.ProductCategory entity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/update", ReplyAction="http://tempuri.org/IModelOf_Category/updateResponse")]
+        bool update(MVCbansach.ProductCategoryService.Category entity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/update", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/updateResponse")]
-        System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.ProductCategoryService.ProductCategory entity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/update", ReplyAction="http://tempuri.org/IModelOf_Category/updateResponse")]
+        System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.ProductCategoryService.Category entity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/delete", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/deleteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/delete", ReplyAction="http://tempuri.org/IModelOf_Category/deleteResponse")]
         bool delete(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_ProductCategory/delete", ReplyAction="http://tempuri.org/IModelOf_ProductCategory/deleteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/delete", ReplyAction="http://tempuri.org/IModelOf_Category/deleteResponse")]
         System.Threading.Tasks.Task<bool> deleteAsync(long id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductCategory/findByParentId", ReplyAction="http://tempuri.org/IProductCategory/findByParentIdResponse")]
-        MVCbansach.ProductCategoryService.ProductCategory[] findByParentId(long parentId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductCategory/findByParentId", ReplyAction="http://tempuri.org/IProductCategory/findByParentIdResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory[]> findByParentIdAsync(long parentId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductCategory/findByShowOnHome", ReplyAction="http://tempuri.org/IProductCategory/findByShowOnHomeResponse")]
-        MVCbansach.ProductCategoryService.ProductCategory[] findByShowOnHome(bool showOnHome);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductCategory/findByShowOnHome", ReplyAction="http://tempuri.org/IProductCategory/findByShowOnHomeResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory[]> findByShowOnHomeAsync(bool showOnHome);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProductCategoryChannel : MVCbansach.ProductCategoryService.IProductCategory, System.ServiceModel.IClientChannel {
+    public interface ICategoryChannel : MVCbansach.ProductCategoryService.ICategory, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProductCategoryClient : System.ServiceModel.ClientBase<MVCbansach.ProductCategoryService.IProductCategory>, MVCbansach.ProductCategoryService.IProductCategory {
+    public partial class CategoryClient : System.ServiceModel.ClientBase<MVCbansach.ProductCategoryService.ICategory>, MVCbansach.ProductCategoryService.ICategory {
         
-        public ProductCategoryClient() {
+        public CategoryClient() {
         }
         
-        public ProductCategoryClient(string endpointConfigurationName) : 
+        public CategoryClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ProductCategoryClient(string endpointConfigurationName, string remoteAddress) : 
+        public CategoryClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ProductCategoryClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public CategoryClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ProductCategoryClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public CategoryClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public MVCbansach.ProductCategoryService.ProductCategory[] findAll() {
+        public MVCbansach.ProductCategoryService.Category[] findAll() {
             return base.Channel.findAll();
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory[]> findAllAsync() {
+        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category[]> findAllAsync() {
             return base.Channel.findAllAsync();
         }
         
-        public MVCbansach.ProductCategoryService.ProductCategory findById(long id) {
+        public MVCbansach.ProductCategoryService.Category findById(long id) {
             return base.Channel.findById(id);
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory> findByIdAsync(long id) {
+        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category> findByIdAsync(long id) {
             return base.Channel.findByIdAsync(id);
         }
         
-        public long insert(MVCbansach.ProductCategoryService.ProductCategory entity) {
+        public long insert(MVCbansach.ProductCategoryService.Category entity) {
             return base.Channel.insert(entity);
         }
         
-        public System.Threading.Tasks.Task<long> insertAsync(MVCbansach.ProductCategoryService.ProductCategory entity) {
+        public System.Threading.Tasks.Task<long> insertAsync(MVCbansach.ProductCategoryService.Category entity) {
             return base.Channel.insertAsync(entity);
         }
         
-        public bool update(MVCbansach.ProductCategoryService.ProductCategory entity) {
+        public bool update(MVCbansach.ProductCategoryService.Category entity) {
             return base.Channel.update(entity);
         }
         
-        public System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.ProductCategoryService.ProductCategory entity) {
+        public System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.ProductCategoryService.Category entity) {
             return base.Channel.updateAsync(entity);
         }
         
@@ -426,22 +270,6 @@ namespace MVCbansach.ProductCategoryService {
         
         public System.Threading.Tasks.Task<bool> deleteAsync(long id) {
             return base.Channel.deleteAsync(id);
-        }
-        
-        public MVCbansach.ProductCategoryService.ProductCategory[] findByParentId(long parentId) {
-            return base.Channel.findByParentId(parentId);
-        }
-        
-        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory[]> findByParentIdAsync(long parentId) {
-            return base.Channel.findByParentIdAsync(parentId);
-        }
-        
-        public MVCbansach.ProductCategoryService.ProductCategory[] findByShowOnHome(bool showOnHome) {
-            return base.Channel.findByShowOnHome(showOnHome);
-        }
-        
-        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.ProductCategory[]> findByShowOnHomeAsync(bool showOnHome) {
-            return base.Channel.findByShowOnHomeAsync(showOnHome);
         }
     }
 }

@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8090/productcategory?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8090/category?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProductCategoryService.wsdl" MetadataType="Wsdl" ID="3e4ad675-4270-4c83-9df2-44d361291617" SourceId="1" SourceUrl="http://localhost:8090/productcategory?wsdl" />
-    <MetadataFile FileName="productcategory.xsd" MetadataType="Schema" ID="0797bd7d-ab8b-45fe-b077-6b510888450d" SourceId="1" SourceUrl="http://localhost:8090/productcategory?xsd=xsd2" />
-    <MetadataFile FileName="productcategory1.xsd" MetadataType="Schema" ID="cbc5a8f6-af60-476c-9564-cb9107b1e4dd" SourceId="1" SourceUrl="http://localhost:8090/productcategory?xsd=xsd1" />
-    <MetadataFile FileName="productcategory2.xsd" MetadataType="Schema" ID="c8a7de5e-fbbf-4cf6-9ed5-109dc8236230" SourceId="1" SourceUrl="http://localhost:8090/productcategory?xsd=xsd0" />
+    <MetadataFile FileName="category.xsd" MetadataType="Schema" ID="0ece926a-b59e-470f-8e27-47495f57c4bd" SourceId="1" SourceUrl="http://localhost:8090/category?xsd=xsd2" />
+    <MetadataFile FileName="category1.xsd" MetadataType="Schema" ID="6570d0de-fa05-48b6-98d4-564db1ac2fa9" SourceId="1" SourceUrl="http://localhost:8090/category?xsd=xsd1" />
+    <MetadataFile FileName="CategoryService.wsdl" MetadataType="Wsdl" ID="ccfaad21-dd0b-4bee-904a-59911c2bd9e0" SourceId="1" SourceUrl="http://localhost:8090/category?wsdl" />
+    <MetadataFile FileName="category2.xsd" MetadataType="Schema" ID="0ec63ac0-15c8-42b3-85a9-3885bb85d823" SourceId="1" SourceUrl="http://localhost:8090/category?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
