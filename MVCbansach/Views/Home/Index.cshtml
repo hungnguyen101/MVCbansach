@@ -31,7 +31,6 @@
                                     <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})">@item.Name </a></div>
                                     <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
                                     <div class="cart">
-
                                         <a class="button" href="@Url.Action("OrderNow", "Cart", new { id = item.id })">Thêm vào giỏ</a>
                                     </div>
                                     <div class="clear"></div>

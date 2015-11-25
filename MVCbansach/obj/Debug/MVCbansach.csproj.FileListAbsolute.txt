@@ -55,3 +55,4 @@ C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\System.Web.Helpers.xml
 C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\System.Web.Mvc.xml
 C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\obj\Debug\MVCbansach.dll
 C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\obj\Debug\MVCbansach.pdb
+C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\obj\Debug\MVCbansach.csprojResolveAssemblyReference.cache

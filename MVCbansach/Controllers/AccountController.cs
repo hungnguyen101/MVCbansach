@@ -234,7 +234,7 @@ namespace MVCbansach.Controllers
                     bool UpdateResult = serv.update(account);
                     if (UpdateResult == false)
                     {
-                        Session["ErrorMessage"] = "Cập nhật avatar thất bài";
+                        Session["ErrorMessage"] = "Cập nhật avatar thất bại";
                     }
                     else
                     {

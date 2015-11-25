@@ -14,6 +14,11 @@
     <!--Breadcrumb Part End-->
     <h1>Đăng nhập tài khoản</h1>
     <div class="login-content">
+        @if (Session["WarningMessage"] != null)
+        {
+            <p class="warning" style="text-align:center">@Session["WarningMessage"] </p>
+            Session["WarningMessage"] = null;
+        }
         <div class="left">
             <h2>KHÁCH HÀNG MỚI</h2>
             <div class="content">
@@ -42,7 +47,7 @@
                     <br>
                     <a href="#">Quên mật khẩu</a><br>
                     <br>
-                    <input type="submit" class="button" value="Login">
+                    <input type="submit" class="button" value="Đăng nhập">
                 </div>
             }
         </div>

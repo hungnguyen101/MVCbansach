@@ -61,24 +61,24 @@ namespace MVCbansach.Controllers
             }
         }
         // chưa viết
-        public ActionResult Update(int id)
+        public ActionResult UpdateQuantity(int ProId, int quantity)
         {
-            var _idRul = id;// Url.RequestContext.RouteData.Values["id"];
-            if (_idRul == null)
-            {
-                return HttpNotFound();
-            }
-            else
-            {
-                long ItemId = Convert.ToInt64(_idRul);
                 // cart exist
                 List<Item> cart = (List<Item>)Session["cart"];
-                ProductService.Product product = ProServ.findById(ItemId);
-                int index = isExisting(ItemId);
-                cart.RemoveAt(index);
-                Session["cart"] = cart;
+                ProductService.Product product = ProServ.findById(ProId);
+                int index = isExisting(ProId);
+                if (quantity == 0)
+                {
+                    cart.RemoveAt(index); 
+                }
+                else
+                {
+                    cart.RemoveAt(index);
+                    cart.Add(new Item(product, quantity));
+                    Session["cart"] = cart;
+                    
+                }
                 return Redirect(Request.UrlReferrer.ToString());
-            }
         }
         public ActionResult OrderNow(int id)
         {
@@ -97,6 +97,7 @@ namespace MVCbansach.Controllers
                     ProductService.Product product = ProServ.findById(ItemId);
                     cart.Add(new Item(product, 1));
                     Session["cart"] = cart;
+                    Session["SuccessMessage"] = "Bạn vừa thêm một sản phẩm vào giỏ hàng";
                     return RedirectToAction("Index", "Cart");
                 }
                 else
@@ -110,15 +111,17 @@ namespace MVCbansach.Controllers
                     if (index == -1)
                     {
                         cart.Add(new Item(product, 1));
+                        Session["SuccessMessage"] = "Bạn vừa thêm một sản phẩm vào giỏ hàng";
                     }
                     else
                     {
                         // item exist -> increase quantity
                         cart[index].Quantity++;
+                        Session["SuccessMessage"] = "Bạn vừa cập nhật một sản phẩm vào giỏ hàng";
                     }
                     
                     Session["cart"] = cart;
-                    return Redirect(Request.UrlReferrer.ToString());
+                    return RedirectToAction("Index", "Cart");
                 } 
             }     
         }

@@ -9,55 +9,55 @@
     </div>
     <!--Breadcrumb Part End-->
     <h1>Giỏ hàng của bạn</h1>
-    <form enctype="multipart/form-data" method="post" action="#">
-        <div class="cart-info">
-            <table>
-                <thead>
-
+    @if (Session["SuccessMessage"] != null)
+    {
+        <p class="success" style="text-align:center">@Session["SuccessMessage"] </p>
+        Session["SuccessMessage"] = null;
+    }
+    <div class="cart-info">
+        <table>
+            <thead>
+                <tr>
+                    <td class="image">Bìa sách</td>
+                    <td class="name">Tên sách</td>
+                    <td class="model">Số lượng</td>
+                    <td class="quantity">Gía gốc</td>
+                    <td class="price">Gía khuyến mãi</td>
+                    <td class="total">Tổng</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Session["cart"] == null)
+                {
                     <tr>
-                        <td class="image">Bìa sách</td>
-                        <td class="name">Tên sách</td>
-                        <td class="model">Số lượng</td>
-                        <td class="quantity">Gía gốc</td>
-                        <td class="price">Gía khuyến mãi</td>
-                        <td class="total">Tổng</td>
+                        <td>Chưa có sản phẩm nào</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @if (Session["cart"] == null)
+                }
+                else
+                {
+                    foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
                     {
                         <tr>
-                            <td>Chưa có sản phẩm nào</td>
+                            <td class="image">
+                                <a href="Product/ProductDetail/@item.Pr.id"><img src="@item.Pr.Thumbnail" alt="@item.Pr.Name" height="50" width="50" /></a>
+                                <input type="hidden" id="id_product" value="@item.Pr.id" />
+                            </td>
+                            <td class="name"><a href="Product/ProductDetail/@item.Pr.id">@item.Pr.Name</a></td>
+                            <td class="quantity">
+                                <input type="text" size="1" value="@item.Quantity" id="inputValue" name="inputValue" class="w30">
+                                &nbsp;
+                                <input type="image" title="Cập nhật" id="quantityUpdate" name="quantityUpdate" alt="Cập nhật" src="~/Content/image/update.png" onclick="location.href = '@Url.Action("UpdateQuantity", "Cart", new { ProId = (int)item.Pr.id, quantity = item.Quantity })'">
+                                <a href="@Url.Action("Delete", "Cart", new { id = item.Pr.id })"><img title="Xóa" alt="Xóa" src="~/Content/image/remove.png" onclick="location.href = '@Url.Action("Delete", "Cart", new { id = item.Pr.id })'"></a>
+                            </td>
+                            <td class="model">@item.Pr.Price</td>
+                            <td class="price">@item.Pr.PromotionPrice</td>
+                            <td class="total">@(item.Pr.PromotionPrice * item.Quantity)</td>
                         </tr>
                     }
-                    else
-                    {
-                        foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
-                        {
-                            <tr>
-                                <td class="image">
-                                    <a href="Product/ProductDetail/@item.Pr.id"><img src="@item.Pr.MoreImages" alt="@item.Pr.Name" height="50" width="50" /></a>
-                                    <input type="hidden" id="id_product" value="@item.Pr.id" />
-                                </td>
-                                <td class="name"><a href="Product/ProductDetail/@item.Pr.id">@item.Pr.Name</a></td>
-                                <td class="quantity">
-                                    <input type="text" size="1" value="@item.Quantity" id="inputValue" name="inputValue" class="w30">
-                                    &nbsp;
-                                    <input type="image" title="Cập nhật" id="quantityUpdate" name="quantityUpdate" alt="Cập nhật" src="~/Content/image/update.png" onclick="changeUrl()">
-
-                                   
-                                    <a href="@Url.Action("Delete", "Cart", new { id = item.Pr.id })"><img title="Xóa" alt="Xóa" src="~/Content/image/remove.png" onclick="location.href = '@Url.Action("Delete", "Cart", new { id = item.Pr.id })'"></a>
-                                </td>
-                                <td class="model">@item.Pr.Price</td>
-                                <td class="price">@item.Pr.PromotionPrice</td>
-                                <td class="total">@(item.Pr.PromotionPrice * item.Quantity)</td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-        </div>
-    </form>    
+                }
+            </tbody>
+        </table>
+    </div>
     <div class="cart-total">
         <table id="total">
             <tbody>

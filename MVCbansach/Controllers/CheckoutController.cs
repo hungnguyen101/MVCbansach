@@ -17,22 +17,32 @@ namespace MVCbansach.Controllers
         }
         public ActionResult OrderConfirm()
         {
-            OrderService.Order Order = new OrderService.Order();
-            Order.Account = (int)Session["userid"];
-            Order.CreatedAt = DateTime.Now;
-            Order.Status = false;
-            Order.Information = "abcd";
-
-            List<OrderService.DetailOrder> orderDetail = new List<OrderService.DetailOrder>();
-            OrderService.DetailOrder items = new  OrderService.DetailOrder();
-            foreach (Item item in (List<Item>)Session["cart"]){
-                items.ProductId = Convert.ToInt32(item.Pr.id);
-                items.Quantity = item.Pr.Quantity;
+            if (Session["userid"] == null)
+            {
+                Session["WarningMessage"] = "Vui lòng đăng nhập trước khi thanh toán hoặc tạo tài khoản nếu bạn không phải thành viên.";
+                return RedirectToAction("Login", "Account");
             }
-            orderDetail.Add(items);
+            else
+            {
+                OrderService.Order Order = new OrderService.Order();
 
-            OrderSer.insert(Order, orderDetail.ToArray());
-            return RedirectToAction("Index", "Home");
+                Order.Account = (int)Session["userid"];
+                Order.CreatedAt = DateTime.Now;
+                Order.Status = false;
+                Order.Information = "abcd";
+
+                List<OrderService.DetailOrder> orderDetail = new List<OrderService.DetailOrder>();
+                OrderService.DetailOrder items = new OrderService.DetailOrder();
+                foreach (Item item in (List<Item>)Session["cart"])
+                {
+                    items.ProductId = Convert.ToInt32(item.Pr.id);
+                    items.Quantity = item.Pr.Quantity;
+                }
+                orderDetail.Add(items);
+
+                OrderSer.insert(Order, orderDetail.ToArray());
+                return RedirectToAction("Index", "Home");
+            }    
         }
     }
 }
