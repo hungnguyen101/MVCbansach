@@ -41,9 +41,9 @@ namespace MVCbansach.Controllers
             }
             return total;
         }
-        public ActionResult Delete()
+        public ActionResult Delete(int id)
         {
-            var _idRul = Url.RequestContext.RouteData.Values["id"];
+            var _idRul = id;// Url.RequestContext.RouteData.Values["id"];
             if (_idRul == null)
             {
                 return HttpNotFound();
@@ -61,9 +61,9 @@ namespace MVCbansach.Controllers
             }
         }
         // chưa viết
-        public ActionResult Update()
+        public ActionResult Update(int id)
         {
-            var _idRul = Url.RequestContext.RouteData.Values["id"];
+            var _idRul = id;// Url.RequestContext.RouteData.Values["id"];
             if (_idRul == null)
             {
                 return HttpNotFound();
@@ -80,9 +80,9 @@ namespace MVCbansach.Controllers
                 return Redirect(Request.UrlReferrer.ToString());
             }
         }
-        public ActionResult OrderNow()
+        public ActionResult OrderNow(int id)
         {
-            var _idRul = Url.RequestContext.RouteData.Values["id"];
+            var _idRul = id;// Url.RequestContext.RouteData.Values["id"];
             if (_idRul == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace MVCbansach.Controllers
                     ProductService.Product product = ProServ.findById(ItemId);
                     cart.Add(new Item(product, 1));
                     Session["cart"] = cart;
-                    return Redirect(Request.UrlReferrer.ToString());
+                    return RedirectToAction("Index", "Cart");
                 }
                 else
                 {

@@ -982,6 +982,9 @@
                     </thead>
                     <tbody>
                         <tr>
+                            @if(Session["cart"]==null){
+                                
+                            }
                             @foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
                             {
                                 <td class="name"><a href="#">@item.Pr.Name</a></td>
@@ -1011,7 +1014,7 @@
             </div>
             <div class="buttons">
                 <div class="right">
-                    <input type="button" class="button" id="button-confirm" value="Confirm Order">
+                    <input type="button" class="button" id="button-confirm" value="Xác nhận thanh toán" onclick="location.href='@Url.Action("OrderConfirm", "Checkout")'">
                 </div>
             </div>
         </div>

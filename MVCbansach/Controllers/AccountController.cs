@@ -8,6 +8,8 @@ using PagedList;
 using System.Security.Cryptography;
 using System.Text;
 using System.IO;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 
 namespace MVCbansach.Controllers
@@ -243,7 +245,27 @@ namespace MVCbansach.Controllers
             }
             return RedirectToAction("MyAccount", "Account");
         }
-        
+
+
+        private string UploadImage(string filename)
+        {
+            string url = @"https://api.imgur.com/3/image";
+            string key = @"Client-ID 453ed82ac0c751b";
+            WebRequest req = WebRequest.Create(url);
+            req.Headers.Add(HttpRequestHeader.Authorization, key);
+            req.Method = "POST";
+            byte[] data = System.IO.File.ReadAllBytes(filename);
+            using (var stream = req.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+            var response = (HttpWebResponse)req.GetResponse();
+
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            JObject json = JObject.Parse(responseString);
+            string link = json["data"]["link"].ToString();
+            return link;
+        }
 
         public ActionResult List()
         {

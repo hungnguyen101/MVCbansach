@@ -1,5 +1,4 @@
-﻿@model List<MVCbansach.ProductService.Product>
-       
+﻿@model IEnumerable<MVCbansach.ProductService.Product>
 
 <div id="content">
     <!-- Nivo Slider Start -->
@@ -8,7 +7,7 @@
     </section>
     <script type="text/javascript">
         $(document).ready(function() {
-	        $('#slideshow').nivoSlider();
+            $('#slideshow').nivoSlider();
         });
     </script>
     <!-- Nivo Slider End-->
@@ -24,18 +23,17 @@
                 <div class="flexslider featured_carousel">
                     <ul class="slides">
                         <!--SACH HOT slider-->
-                        
                         @foreach (var item in Model.Take(10).OrderBy(n => n.CreatedAt).ToList())
                         {
                             <li>
                                 <div class="slide-inner">
-                                    <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)"><img src="@item.Thumbnail" alt="@item.Name" /></a></div>
-                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)">@item.Name </a></div>
+                                    <div class="image"><a href="Product\ProductDetail\@item.id"><img src="@item.Thumbnail" alt="@item.Name" /></a></div>
+                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})">@item.Name </a></div>
                                     <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
                                     <div class="cart">
-                                        <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
+
+                                        <a class="button" href="@Url.Action("OrderNow", "Cart", new { id = item.id })">Thêm vào giỏ</a>
                                     </div>
-                                    <div class="rating"><img src="~/Content/image/stars-4.png" alt="dựa trên nhận xét." /></div>
                                     <div class="clear"></div>
                                 </div>
                             </li>

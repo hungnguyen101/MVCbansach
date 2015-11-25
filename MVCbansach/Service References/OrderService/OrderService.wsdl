@@ -4,9 +4,15 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8090/order?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8090/order?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8090/order?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF" />
+      <xsd:import schemaLocation="http://localhost:8090/order?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IOrder_findOrderByAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:findOrderByAccount" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_findOrderByAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:findOrderByAccountResponse" />
+  </wsdl:message>
   <wsdl:message name="IOrder_findAll_InputMessage">
     <wsdl:part name="parameters" element="tns:findAll" />
   </wsdl:message>
@@ -19,19 +25,29 @@
   <wsdl:message name="IOrder_findById_OutputMessage">
     <wsdl:part name="parameters" element="tns:findByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrder_findDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:findDetail" />
+  <wsdl:message name="IOrder_insert_InputMessage">
+    <wsdl:part name="parameters" element="tns:insert" />
   </wsdl:message>
-  <wsdl:message name="IOrder_findDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:findDetailResponse" />
+  <wsdl:message name="IOrder_insert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrder_Order_InputMessage">
-    <wsdl:part name="parameters" element="tns:Order" />
+  <wsdl:message name="IOrder_delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:delete" />
   </wsdl:message>
-  <wsdl:message name="IOrder_Order_OutputMessage">
-    <wsdl:part name="parameters" element="tns:OrderResponse" />
+  <wsdl:message name="IOrder_delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_findDetailByOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:findDetailByOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_findDetailByOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:findDetailByOrderResponse" />
   </wsdl:message>
   <wsdl:portType name="IOrder">
+    <wsdl:operation name="findOrderByAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/findOrderByAccount" message="tns:IOrder_findOrderByAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/findOrderByAccountResponse" message="tns:IOrder_findOrderByAccount_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="findAll">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrder/findAll" message="tns:IOrder_findAll_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrder/findAllResponse" message="tns:IOrder_findAll_OutputMessage" />
@@ -40,17 +56,30 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IOrder/findById" message="tns:IOrder_findById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrder/findByIdResponse" message="tns:IOrder_findById_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="findDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/findDetail" message="tns:IOrder_findDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/findDetailResponse" message="tns:IOrder_findDetail_OutputMessage" />
+    <wsdl:operation name="insert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/insert" message="tns:IOrder_insert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/insertResponse" message="tns:IOrder_insert_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Order">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/Order" message="tns:IOrder_Order_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/OrderResponse" message="tns:IOrder_Order_OutputMessage" />
+    <wsdl:operation name="delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/delete" message="tns:IOrder_delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/deleteResponse" message="tns:IOrder_delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="findDetailByOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/findDetailByOrder" message="tns:IOrder_findDetailByOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/findDetailByOrderResponse" message="tns:IOrder_findDetailByOrder_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrder" type="tns:IOrder">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findOrderByAccount">
+      <soap:operation soapAction="http://tempuri.org/IOrder/findOrderByAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="findAll">
       <soap:operation soapAction="http://tempuri.org/IOrder/findAll" style="document" />
       <wsdl:input>
@@ -69,8 +98,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="findDetail">
-      <soap:operation soapAction="http://tempuri.org/IOrder/findDetail" style="document" />
+    <wsdl:operation name="insert">
+      <soap:operation soapAction="http://tempuri.org/IOrder/insert" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -78,8 +107,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Order">
-      <soap:operation soapAction="http://tempuri.org/IOrder/Order" style="document" />
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="http://tempuri.org/IOrder/delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDetailByOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrder/findDetailByOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -90,7 +128,7 @@
   </wsdl:binding>
   <wsdl:service name="OrderService">
     <wsdl:port name="BasicHttpBinding_IOrder" binding="tns:BasicHttpBinding_IOrder">
-      <soap:address location="http://localhost:8090/order/OrderService" />
+      <soap:address location="http://localhost:8090/order/order" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

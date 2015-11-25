@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8090/order?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF" />
+  <xs:import schemaLocation="http://localhost:8090/order?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF" />
+  <xs:element name="findOrderByAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findOrderByAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BookStoreService.EF" minOccurs="0" name="findOrderByAccountResult" nillable="true" type="q1:ArrayOfOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="findAll">
     <xs:complexType>
       <xs:sequence />
@@ -9,7 +23,7 @@
   <xs:element name="findAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF" minOccurs="0" name="findAllResult" nillable="true" type="q1:ArrayOfOrder" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BookStoreService.EF" minOccurs="0" name="findAllResult" nillable="true" type="q2:ArrayOfOrder" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -23,36 +37,50 @@
   <xs:element name="findByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF" minOccurs="0" name="findByIdResult" nillable="true" type="q2:Order" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BookStoreService.EF" minOccurs="0" name="findByIdResult" nillable="true" type="q3:Order" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="findDetail">
+  <xs:element name="insert">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="orderId" type="xs:long" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BookStoreService.EF" minOccurs="0" name="entity" nillable="true" type="q4:Order" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BookStoreService.EF" minOccurs="0" name="items" nillable="true" type="q5:ArrayOfDetailOrder" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="findDetailResponse">
+  <xs:element name="insertResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF" minOccurs="0" name="findDetailResult" nillable="true" type="q3:ArrayOfOderDetail" />
+        <xs:element minOccurs="0" name="insertResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Order">
+  <xs:element name="delete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF" minOccurs="0" name="order" nillable="true" type="q4:Order" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF" minOccurs="0" name="details" nillable="true" type="q5:ArrayOfOderDetail" />
+        <xs:element minOccurs="0" name="id" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="OrderResponse">
+  <xs:element name="deleteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="OrderResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="deleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findDetailByOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findDetailByOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BookStoreService.EF" minOccurs="0" name="findDetailByOrderResult" nillable="true" type="q6:ArrayOfDetailOrder" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -15,7 +15,7 @@ namespace MVCbansach.OrderService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
     [System.SerializableAttribute()]
     public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -23,28 +23,34 @@ namespace MVCbansach.OrderService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> AccountIDField;
+        private System.Nullable<int> AccountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AddressField;
+        private System.Nullable<System.DateTime> CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreatedDateField;
+        private string CreatedByField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDField;
+        private string InformationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> PaymentMethodField;
+        private System.Nullable<System.DateTime> ModifiedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> ShippingMethodField;
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaymentMethodField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<decimal> TotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long idField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -57,79 +63,92 @@ namespace MVCbansach.OrderService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> AccountID {
+        public System.Nullable<int> Account {
             get {
-                return this.AccountIDField;
+                return this.AccountField;
             }
             set {
-                if ((this.AccountIDField.Equals(value) != true)) {
-                    this.AccountIDField = value;
-                    this.RaisePropertyChanged("AccountID");
+                if ((this.AccountField.Equals(value) != true)) {
+                    this.AccountField = value;
+                    this.RaisePropertyChanged("Account");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Address {
+        public System.Nullable<System.DateTime> CreatedAt {
             get {
-                return this.AddressField;
+                return this.CreatedAtField;
             }
             set {
-                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
-                    this.AddressField = value;
-                    this.RaisePropertyChanged("Address");
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreatedDate {
+        public string CreatedBy {
             get {
-                return this.CreatedDateField;
+                return this.CreatedByField;
             }
             set {
-                if ((this.CreatedDateField.Equals(value) != true)) {
-                    this.CreatedDateField = value;
-                    this.RaisePropertyChanged("CreatedDate");
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long ID {
+        public string Information {
             get {
-                return this.IDField;
+                return this.InformationField;
             }
             set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
+                if ((object.ReferenceEquals(this.InformationField, value) != true)) {
+                    this.InformationField = value;
+                    this.RaisePropertyChanged("Information");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> PaymentMethod {
+        public System.Nullable<System.DateTime> ModifiedAt {
+            get {
+                return this.ModifiedAtField;
+            }
+            set {
+                if ((this.ModifiedAtField.Equals(value) != true)) {
+                    this.ModifiedAtField = value;
+                    this.RaisePropertyChanged("ModifiedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PaymentMethod {
             get {
                 return this.PaymentMethodField;
             }
             set {
-                if ((this.PaymentMethodField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.PaymentMethodField, value) != true)) {
                     this.PaymentMethodField = value;
                     this.RaisePropertyChanged("PaymentMethod");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> ShippingMethod {
-            get {
-                return this.ShippingMethodField;
-            }
-            set {
-                if ((this.ShippingMethodField.Equals(value) != true)) {
-                    this.ShippingMethodField = value;
-                    this.RaisePropertyChanged("ShippingMethod");
                 }
             }
         }
@@ -160,6 +179,19 @@ namespace MVCbansach.OrderService {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -172,18 +204,18 @@ namespace MVCbansach.OrderService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OderDetail", Namespace="http://schemas.datacontract.org/2004/07/BookStoreOnline.EF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetailOrder", Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
     [System.SerializableAttribute()]
-    public partial class OderDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class DetailOrder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long OrderIDField;
+        private long OrderIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long ProductIDField;
+        private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> QuantityField;
@@ -199,27 +231,27 @@ namespace MVCbansach.OrderService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long OrderID {
+        public long OrderId {
             get {
-                return this.OrderIDField;
+                return this.OrderIdField;
             }
             set {
-                if ((this.OrderIDField.Equals(value) != true)) {
-                    this.OrderIDField = value;
-                    this.RaisePropertyChanged("OrderID");
+                if ((this.OrderIdField.Equals(value) != true)) {
+                    this.OrderIdField = value;
+                    this.RaisePropertyChanged("OrderId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long ProductID {
+        public int ProductId {
             get {
-                return this.ProductIDField;
+                return this.ProductIdField;
             }
             set {
-                if ((this.ProductIDField.Equals(value) != true)) {
-                    this.ProductIDField = value;
-                    this.RaisePropertyChanged("ProductID");
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
                 }
             }
         }
@@ -251,6 +283,12 @@ namespace MVCbansach.OrderService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OrderService.IOrder")]
     public interface IOrder {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findOrderByAccount", ReplyAction="http://tempuri.org/IOrder/findOrderByAccountResponse")]
+        MVCbansach.OrderService.Order[] findOrderByAccount(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findOrderByAccount", ReplyAction="http://tempuri.org/IOrder/findOrderByAccountResponse")]
+        System.Threading.Tasks.Task<MVCbansach.OrderService.Order[]> findOrderByAccountAsync(long id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findAll", ReplyAction="http://tempuri.org/IOrder/findAllResponse")]
         MVCbansach.OrderService.Order[] findAll();
         
@@ -263,17 +301,23 @@ namespace MVCbansach.OrderService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findById", ReplyAction="http://tempuri.org/IOrder/findByIdResponse")]
         System.Threading.Tasks.Task<MVCbansach.OrderService.Order> findByIdAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findDetail", ReplyAction="http://tempuri.org/IOrder/findDetailResponse")]
-        MVCbansach.OrderService.OderDetail[] findDetail(long orderId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/insert", ReplyAction="http://tempuri.org/IOrder/insertResponse")]
+        bool insert(MVCbansach.OrderService.Order entity, MVCbansach.OrderService.DetailOrder[] items);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findDetail", ReplyAction="http://tempuri.org/IOrder/findDetailResponse")]
-        System.Threading.Tasks.Task<MVCbansach.OrderService.OderDetail[]> findDetailAsync(long orderId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/insert", ReplyAction="http://tempuri.org/IOrder/insertResponse")]
+        System.Threading.Tasks.Task<bool> insertAsync(MVCbansach.OrderService.Order entity, MVCbansach.OrderService.DetailOrder[] items);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Order", ReplyAction="http://tempuri.org/IOrder/OrderResponse")]
-        bool Order([System.ServiceModel.MessageParameterAttribute(Name="order")] MVCbansach.OrderService.Order order1, MVCbansach.OrderService.OderDetail[] details);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/delete", ReplyAction="http://tempuri.org/IOrder/deleteResponse")]
+        bool delete(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Order", ReplyAction="http://tempuri.org/IOrder/OrderResponse")]
-        System.Threading.Tasks.Task<bool> OrderAsync(MVCbansach.OrderService.Order order, MVCbansach.OrderService.OderDetail[] details);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/delete", ReplyAction="http://tempuri.org/IOrder/deleteResponse")]
+        System.Threading.Tasks.Task<bool> deleteAsync(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findDetailByOrder", ReplyAction="http://tempuri.org/IOrder/findDetailByOrderResponse")]
+        MVCbansach.OrderService.DetailOrder[] findDetailByOrder(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/findDetailByOrder", ReplyAction="http://tempuri.org/IOrder/findDetailByOrderResponse")]
+        System.Threading.Tasks.Task<MVCbansach.OrderService.DetailOrder[]> findDetailByOrderAsync(long id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -303,6 +347,14 @@ namespace MVCbansach.OrderService {
                 base(binding, remoteAddress) {
         }
         
+        public MVCbansach.OrderService.Order[] findOrderByAccount(long id) {
+            return base.Channel.findOrderByAccount(id);
+        }
+        
+        public System.Threading.Tasks.Task<MVCbansach.OrderService.Order[]> findOrderByAccountAsync(long id) {
+            return base.Channel.findOrderByAccountAsync(id);
+        }
+        
         public MVCbansach.OrderService.Order[] findAll() {
             return base.Channel.findAll();
         }
@@ -319,20 +371,28 @@ namespace MVCbansach.OrderService {
             return base.Channel.findByIdAsync(id);
         }
         
-        public MVCbansach.OrderService.OderDetail[] findDetail(long orderId) {
-            return base.Channel.findDetail(orderId);
+        public bool insert(MVCbansach.OrderService.Order entity, MVCbansach.OrderService.DetailOrder[] items) {
+            return base.Channel.insert(entity, items);
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.OrderService.OderDetail[]> findDetailAsync(long orderId) {
-            return base.Channel.findDetailAsync(orderId);
+        public System.Threading.Tasks.Task<bool> insertAsync(MVCbansach.OrderService.Order entity, MVCbansach.OrderService.DetailOrder[] items) {
+            return base.Channel.insertAsync(entity, items);
         }
         
-        public bool Order(MVCbansach.OrderService.Order order1, MVCbansach.OrderService.OderDetail[] details) {
-            return base.Channel.Order(order1, details);
+        public bool delete(long id) {
+            return base.Channel.delete(id);
         }
         
-        public System.Threading.Tasks.Task<bool> OrderAsync(MVCbansach.OrderService.Order order, MVCbansach.OrderService.OderDetail[] details) {
-            return base.Channel.OrderAsync(order, details);
+        public System.Threading.Tasks.Task<bool> deleteAsync(long id) {
+            return base.Channel.deleteAsync(id);
+        }
+        
+        public MVCbansach.OrderService.DetailOrder[] findDetailByOrder(long id) {
+            return base.Channel.findDetailByOrder(id);
+        }
+        
+        public System.Threading.Tasks.Task<MVCbansach.OrderService.DetailOrder[]> findDetailByOrderAsync(long id) {
+            return base.Channel.findDetailByOrderAsync(id);
         }
     }
 }

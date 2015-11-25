@@ -391,6 +391,12 @@ namespace MVCbansach.AccountService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccount/findAccountsByGroup", ReplyAction="http://tempuri.org/IAccount/findAccountsByGroupResponse")]
         System.Threading.Tasks.Task<MVCbansach.AccountService.Account[]> findAccountsByGroupAsync(string groupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccount/findAccountByUsername", ReplyAction="http://tempuri.org/IAccount/findAccountByUsernameResponse")]
+        MVCbansach.AccountService.Account findAccountByUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccount/findAccountByUsername", ReplyAction="http://tempuri.org/IAccount/findAccountByUsernameResponse")]
+        System.Threading.Tasks.Task<MVCbansach.AccountService.Account> findAccountByUsernameAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -474,6 +480,14 @@ namespace MVCbansach.AccountService {
         
         public System.Threading.Tasks.Task<MVCbansach.AccountService.Account[]> findAccountsByGroupAsync(string groupID) {
             return base.Channel.findAccountsByGroupAsync(groupID);
+        }
+        
+        public MVCbansach.AccountService.Account findAccountByUsername(string username) {
+            return base.Channel.findAccountByUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<MVCbansach.AccountService.Account> findAccountByUsernameAsync(string username) {
+            return base.Channel.findAccountByUsernameAsync(username);
         }
     }
 }

@@ -46,23 +46,19 @@ namespace MVCbansach.Controllers
 
         }
 
-        public ActionResult ProductDetail()
+        public ActionResult ProductDetail(int id)
         {
-            var _idRul = Url.RequestContext.RouteData.Values["id"];
+            var _idRul = id;//Url.RequestContext.RouteData.Values["id"];
             if (_idRul == null)
             {
                 return HttpNotFound();
             }else{
-                long id = Convert.ToInt64(_idRul);
-                ProductService.Product product = productServ.findById((long)id);
+                ProductService.Product product = productServ.findById(Convert.ToInt64(_idRul));
                 if (product == null)
                 {
                     return HttpNotFound();
                 }
-                else
-                {
-                    return View(product);
-                }
+                return View(product);
             }           
         }
         public PartialViewResult _NavMenuPartial()

@@ -22,6 +22,7 @@
     <div class="content">
         @if (Session["cart"] == null)
         {
+            
             <span>Chưa có sản phẩm nào</span>
         }
         else
@@ -30,30 +31,18 @@
                 <table>
                         @{ 
                             decimal total = 0;
-                            Session["total"] = 0;
-                            Session["number"] = 0;
+                           
                         }
-                        @foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
-                        {
-                            if (item.Pr.PromotionPrice == null)
-                            {
-                                total = total + item.Quantity * (decimal)item.Pr.Price;
-                            }
-                            else
-                            {
-                                total = total + item.Quantity * (decimal)item.Pr.PromotionPrice;
-                            }
-                            
-                            Session["total"] =+ total;
-                            Session["number"] = (int)Session["number"] +1;
-                            <tr>
-                                <td class="image"><a href="product.html"><img src="@item.Pr.MoreImages" alt="iPhone 4s" title="iPhone 4s" height="50" width="50" /></a></td>
-                                <td class="name"><a href="product.html">@item.Pr.Name</a></td>
-                                <td class="quantity">x&nbsp;@item.Quantity</td>
-                                <td class="total">@(item.Pr.PromotionPrice * item.Quantity) ₫</td>
-                                <td class="remove"><a href="@Url.Action("Delete", "Cart", new { id = item.Pr.id })"><img src="~/Content/image/remove-small.png" alt="Xóa" title="Xóa" /></a></td>
-                            </tr>
-                        }           
+                        @*foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
+    {
+        <tr>
+            <td class="image"><a href="@Html.Action("ProductDetail", "Product", new { id = item.Pr.id})"><img src="@item.Pr.MoreImages" alt="iPhone 4s" title="iPhone 4s" height="50" width="50" /></a></td>
+            <td class="name"><a href="product.html">@item.Pr.Name</a></td>
+            <td class="quantity">x&nbsp;@item.Quantity</td>
+            <td class="total">@(item.Pr.PromotionPrice * item.Quantity) ₫</td>
+            <td class="remove"><a href="@Url.Action("Delete", "Cart", new { id = item.Pr.id })"><img src="~/Content/image/remove-small.png" alt="Xóa" title="Xóa" /></a></td>
+        </tr>
+    }  *@         
                 </table>
             </div>
             <div class="mini-cart-total">
@@ -65,7 +54,17 @@
                 </table>
             </div>
         }
-        <div class="checkout">@Html.ActionLink("Xem giỏ hàng", "Index", "Cart", new { @class="button" })&nbsp; <a class="button" href="checkout.html">Thanh toán</a></div>
+        <div class="checkout">          
+            @if (Session["cart"] == null)
+            {
+            }
+            else
+            {
+                @Html.ActionLink("Xem giỏ hàng", "Index", "Cart", new { @class = "button" }); 
+                <span>&nbsp;</span>
+                @Html.ActionLink("Thanh toán", "Index", "Checkout", new { @class="button"}) 
+            }            
+        </div>
     </div>
 </section>
 <!--Mini Shopping Cart End-->

@@ -40,7 +40,8 @@
             <header id="header">
 
                 <!--Nav menu-->
-                @{ Html.RenderAction("_HeaderPartial", "Account"); }
+                @{ Html.RenderAction("_HeaderPartial", "Account"); } 
+                
                 
                 <section class="hsecond">
                     <div id="logo"><a href="@Url.Action("Index", "Home")"><img src="~/Content/image/logo.png" title="Polishop" alt="Polishop" /></a></div>
@@ -49,7 +50,7 @@
                     @{ Html.RenderAction("_SearchProduct", "Product"); }                       
                     
                     <!--Shopping cart-->
-                    @{ Html.RenderAction("_Cart", "Cart"); }
+                    @*@{ Html.RenderAction("_Cart", "Cart"); } *@
                                                
                     <div class="clear"></div>
                 </section>
