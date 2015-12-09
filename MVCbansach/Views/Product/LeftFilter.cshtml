@@ -1,27 +1,57 @@
-﻿<!--Refine Search Start-->
-<div class="box">
-    <div class="box-heading">Bộ lọc</div>
-    <div class="box-content">
-        <ul class="box-filter">
-            <li>
-                <span id="filter-group">Giá cả</span>
-                <ul>
-                    <li>
-                        <input type="checkbox" value="3" id="filter3" />
-                        <label for="filter3">0.000 ₫- 100.000 ₫ (1)</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" value="4" id="filter4" />
-                        <label for="filter4">100.000 ₫- 500.000 ₫ (5)</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" value="5" id="filter5" />
-                        <label for="filter5">500.000 ₫ - $1.000.000 ₫ (1)</label>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <a id="button-filter" class="button">Tìm kiếm</a>
+﻿@using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
+{
+ <!--Refine Search Start-->
+    <div class="box">
+        <div class="box-heading">Bộ lọc</div>
+        <div class="box-content">
+            <ul class="box-filter">
+                <li>
+                    <span id="filter-group">Giá cả</span>
+                    @ViewBag.checkboxVal
+                    <ul>
+                        <li>
+                            <input type="radio" value="1" id="filter3" name="price" />
+                            <label for="filter3">0.000 ₫- 100.000 ₫ </label>
+                        </li>
+                        <li>
+                            <input type="radio" value="2" id="filter4" name="price" />
+                            <label for="filter4">100.000 ₫- 500.000 ₫ </label>
+                        </li>
+                        <li>
+                            <input type="radio" value="3" id="filter5" name="price" />
+                            <label for="filter5">trên 500.000 ₫</label>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <a id="button-filter" class="button" href="@Url.Action("SearchProduct", "Product", new { checkboxVal = "xxx" })">Tìm kiếm</a>
+        </div>
     </div>
-</div>
-<!--Refine Search End-->
+    <!--Refine Search End-->
+}
+
+<script type="text/javascript">
+
+    // update SL
+    $("#button-filter").click(function (evt) {
+        var fakedUri = $("#button-filter").prop("href");
+        var uri = fakedUri.replace("xxx", $("input[name=price]").val());
+        var keyword = $.urlParam('keyword');
+        if (keyword == null) {
+            keyword == '';          
+        }
+        uri = uri + "&keyword=" + keyword;
+        $("#button-filter").prop("href", uri);
+
+    });
+
+    $.urlParam = function (name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+            return null;
+        }
+        else {
+            return results[1] || 0;
+        }
+    }
+</script>

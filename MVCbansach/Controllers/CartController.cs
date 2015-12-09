@@ -43,14 +43,13 @@ namespace MVCbansach.Controllers
         }
         public ActionResult Delete(int id)
         {
-            var _idRul = id;// Url.RequestContext.RouteData.Values["id"];
-            if (_idRul == null)
+            if (id <= 0)
             {
                 return HttpNotFound();
             }
             else
             {
-                long ItemId = Convert.ToInt64(_idRul);
+                long ItemId = Convert.ToInt64(id);
                 // cart exist
                 List<Item> cart = (List<Item>)Session["cart"];
                 ProductService.Product product = ProServ.findById(ItemId);
@@ -61,7 +60,7 @@ namespace MVCbansach.Controllers
             }
         }
         // chưa viết
-        public ActionResult UpdateQuantity(int ProId, int quantity)
+        public ActionResult UpdateQuantity(int ProId, int quantity=1)
         {
                 // cart exist
                 List<Item> cart = (List<Item>)Session["cart"];
@@ -69,33 +68,33 @@ namespace MVCbansach.Controllers
                 int index = isExisting(ProId);
                 if (quantity == 0)
                 {
-                    cart.RemoveAt(index); 
+                    cart.RemoveAt(index);
+                    Session["SuccessMessage"] = "Xóa sản phẩm khỏi giỏ hàng thành công!";
                 }
                 else
                 {
                     cart.RemoveAt(index);
                     cart.Add(new Item(product, quantity));
                     Session["cart"] = cart;
-                    
+                    Session["SuccessMessage"] = "Cập nhật số lượng sản phẩm thành công!";
                 }
-                return Redirect(Request.UrlReferrer.ToString());
+                return RedirectToAction("Index", "Cart");
         }
-        public ActionResult OrderNow(int id)
+        public ActionResult OrderNow(int id, int quantity = 1)
         {
-            var _idRul = id;// Url.RequestContext.RouteData.Values["id"];
-            if (_idRul == null)
+            if (id <= 0)
             {
                 return HttpNotFound();
             }
             else
             {
-                long ItemId = Convert.ToInt64(_idRul);
+                long ItemId = Convert.ToInt64(id);
                 //create cart 
                 if (Session["cart"] == null)
                 {
                     List<Item> cart = new List<Item>();
                     ProductService.Product product = ProServ.findById(ItemId);
-                    cart.Add(new Item(product, 1));
+                    cart.Add(new Item(product, quantity));
                     Session["cart"] = cart;
                     Session["SuccessMessage"] = "Bạn vừa thêm một sản phẩm vào giỏ hàng";
                     return RedirectToAction("Index", "Cart");
@@ -110,13 +109,13 @@ namespace MVCbansach.Controllers
                     int index = isExisting(ItemId);
                     if (index == -1)
                     {
-                        cart.Add(new Item(product, 1));
+                        cart.Add(new Item(product, quantity));
                         Session["SuccessMessage"] = "Bạn vừa thêm một sản phẩm vào giỏ hàng";
                     }
                     else
                     {
                         // item exist -> increase quantity
-                        cart[index].Quantity++;
+                        cart[index].Quantity = cart[index].Quantity + quantity;
                         Session["SuccessMessage"] = "Bạn vừa cập nhật một sản phẩm vào giỏ hàng";
                     }
                     
@@ -125,5 +124,6 @@ namespace MVCbansach.Controllers
                 } 
             }     
         }
+
     }
 }

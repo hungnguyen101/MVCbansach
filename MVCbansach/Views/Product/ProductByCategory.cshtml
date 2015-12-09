@@ -56,22 +56,20 @@
                 @if (item.Name != null && item.Name.Length >= 35)
                 {
                     item.Name = item.Name.Substring(0, 35) + "...";
-                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id }, null)</div>
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id })</div>
                 }
                 else
                 {
                     item.Name = item.Name;
-                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id }, null)<br /></div>
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id })<br /></div>
                 }
 
                 <div class="price">
-                    <span class="price-old">@item.Price ₫</span> <span class="price-new">@item.PromotionPrice ₫</span> <br />
-                    <span class="price-tax">Ex Tax: 90.00  ₫</span>
+                    <span class="price-old">@string.Format("{0:0,0 ₫}", item.Price)</span> <span class="price-new">@string.Format("{0:0,0 ₫}", item.PromotionPrice)</span> <br />
                 </div>
                 <div class="cart">
-                    <input type="button" value="Thêm vào giỏ" class="button" />
+                    <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
                 </div>
-                <div class="rating"><img src="~/Content/image/stars-4.png" alt="Dựa trên 10 bình luận" /></div>
             </div>
         }
     </div>

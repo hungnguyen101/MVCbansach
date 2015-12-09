@@ -1,5 +1,9 @@
-﻿<div id="search">
-    <div class="button-search"></div>
-    <input type="text" name="search" placeholder="Tìm kiếm..." value="" />
-</div>
+﻿@using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
+{
+    <div id="search">
+        <div class="button-search"></div>
+        <input type="text" name="keyword" placeholder="Tìm kiếm..." value="" />
+    </div>
+}
+
 

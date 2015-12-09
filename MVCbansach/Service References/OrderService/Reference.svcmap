@@ -19,13 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8090/order?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://demo.somee.com/OrderService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="order.xsd" MetadataType="Schema" ID="a0881b83-b88c-43fc-81c0-58dc75dfacde" SourceId="1" SourceUrl="http://localhost:8090/order?xsd=xsd0" />
-    <MetadataFile FileName="order1.xsd" MetadataType="Schema" ID="3fd9e3df-13dc-4fe0-8d8c-4e923baaa71f" SourceId="1" SourceUrl="http://localhost:8090/order?xsd=xsd1" />
-    <MetadataFile FileName="OrderService.wsdl" MetadataType="Wsdl" ID="e73c4e6e-d298-410d-a9a6-4d8a7f78f8d9" SourceId="1" SourceUrl="http://localhost:8090/order?wsdl" />
-    <MetadataFile FileName="order2.xsd" MetadataType="Schema" ID="a46e2aea-df95-4609-8e72-22326e034c92" SourceId="1" SourceUrl="http://localhost:8090/order?xsd=xsd2" />
+    <MetadataFile FileName="OrderService.xsd" MetadataType="Schema" ID="94109f42-5055-4f4d-aa60-4f9534b8e9e0" SourceId="1" SourceUrl="http://demo.somee.com/OrderService.svc?xsd=xsd0" />
+    <MetadataFile FileName="OrderService.disco" MetadataType="Disco" ID="7d0f0055-8d26-434b-ba36-7cb283b95acc" SourceId="1" SourceUrl="http://demo.somee.com/OrderService.svc?disco" />
+    <MetadataFile FileName="OrderService1.wsdl" MetadataType="Wsdl" ID="f3a20f64-7563-4a0e-ab51-bc562b938d94" SourceId="1" SourceUrl="http://demo.somee.com/OrderService.svc?wsdl" />
+    <MetadataFile FileName="OrderService1.xsd" MetadataType="Schema" ID="d00a568b-ff32-44e5-b647-038cf9637c48" SourceId="1" SourceUrl="http://demo.somee.com/OrderService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OrderService2.xsd" MetadataType="Schema" ID="02d192ef-2729-4c59-823f-ef040c7168bf" SourceId="1" SourceUrl="http://demo.somee.com/OrderService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

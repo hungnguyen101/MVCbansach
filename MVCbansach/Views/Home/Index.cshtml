@@ -27,11 +27,20 @@
                         {
                             <li>
                                 <div class="slide-inner">
-                                    <div class="image"><a href="Product\ProductDetail\@item.id"><img src="@item.Thumbnail" alt="@item.Name" /></a></div>
-                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})">@item.Name </a></div>
-                                    <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
+                                    <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})"><img src="@item.Thumbnail" alt="@item.Name" /></a></div>
+                                    @if (item.Name != null && item.Name.Length >= 35)
+                                    {
+                                        item.Name = item.Name.Substring(0, 35) + "...";
+                                        <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})">@item.Name</a><br /></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})">@item.Name</a><br /></div>
+                                    }
+                                    <div class="price"><span class="price-old">@string.Format("{0:0,0 ₫}", item.Price)</span><span class="price-new">@string.Format("{0:0,0 ₫}", item.PromotionPrice)</span> </div>
                                     <div class="cart">
-                                        <a class="button" href="@Url.Action("OrderNow", "Cart", new { id = item.id })">Thêm vào giỏ</a>
+                                        <a class="button" href="@Url.Action("OrderNow", "Cart", new { id=item.id})">Thêm vào giỏ</a>
+                             
                                     </div>
                                     <div class="clear"></div>
                                 </div>
@@ -69,7 +78,7 @@
     </script>
     <!-- Featured Product End-->
     <!-- Product Tab Start-->
-    <section id="product-tab" class="product-tab">
+    @*<section id="product-tab" class="product-tab">
         <ul id="tabs" class="tabs">
             <li><a href="#tab-latest">SÁCH MỚI</a></li>
             <li><a href="#tab-bestseller">ĐƯỢC BÌNH CHỌN NHIỀU NHẤT</a></li>
@@ -110,11 +119,14 @@
                                 <div class="slide-inner">
                                     <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)"><img src="@item.Thumbnail" alt="@item.Name" /></a></div>
                                     <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)">@item.Name </a></div>
-                                    <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
+                                    <div class="price">
+                                        <span class="price-old">
+                                            <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
+                                        </span><span class="price-new">@item.PromotionPrice ₫</span>
+                                    </div>
                                     <div class="cart">
                                         <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
                                     </div>
-                                    <div class="rating"><img src="~/Content/image/stars-4.png" alt="dựa trên nhận xét." /></div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
@@ -133,12 +145,20 @@
                             <li>
                                 <div class="slide-inner">
                                     <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)"><img src="@item.Thumbnail" alt="@item.Name" /></a></div>
-                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id}, null)">@item.Name </a></div>
-                                    <div class="price"><span class="price-old"> @item.Price ₫</span><span class="price-new">@item.PromotionPrice ₫</span> </div>
+                                    @if (item.Name != null && item.Name.Length >= 35)
+                                    {
+                                        item.Name = item.Name.Substring(0, 35) + "...";
+                                        <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id })</div>
+                                    }
+                                    else
+                                    {
+                                        item.Name = item.Name;
+                                        <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id })<br /></div>
+                                    }
+                                    <div class="price"><span class="price-old">@string.Format("{0:0,0 ₫}", item.Price)</span><span class="price-new">@string.Format("{0:0,0 ₫}", item.PromotionPrice)</span> </div>
                                     <div class="cart">
                                         <input type="button" value="Thêm vào giỏ" class="button" />
                                     </div>
-                                    <div class="rating"><img src="~/Content/image/stars-4.png" alt="dựa trên nhận xét." /></div>
                                     <div class="clear"></div>
                                 </div>
                             </li>
@@ -187,7 +207,7 @@
                     return false;
                 });
             });}());
-    </script>
+    </script>*@
     <!-- Product Tab End-->
 </div>
 

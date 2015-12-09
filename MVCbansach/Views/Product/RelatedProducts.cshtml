@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MVCbansach.ProductService.Product>
+<!--Related Product Start-->
+<div class="box">
+    <div class="box-heading">Những sản phẩm liên quan ( @Model.Count() )</div>
+    <div class="box-content">
+        <div class="box-product">
+            <div class="flexslider" id="related_pro">
+                <ul class="slides">
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <div class="slide-inner">
+                                <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})"><img src="@item.Thumbnail" alt="@item.Name" /></a></div>
+                                @if (item.Name != null && item.Name.Length >= 35)
+                                {
+                                    item.Name = item.Name.Substring(0, 35) + "...";
+                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})">@item.Name</a><br /></div>
+                                }
+                                else
+                                {
+                                    <div class="name"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})">@item.Name</a><br /></div>
+                                }
+                                <div class="price"><span class="price-old">@string.Format("{0:0,0 ₫}", item.Price)</span><span class="price-new">@string.Format("{0:0,0 ₫}", item.PromotionPrice)</span> </div>
+                                <div class="cart">
+                                    <a class="button" href="@Url.Action("OrderNow", "Cart", new { id=item.id})">Thêm vào giỏ</a>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </li>
+                    }
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+            (function () {
+                // store the slider in a local variable
+                var $window = $(window),
+                    flexslider;
+                // tiny helper function to add breakpoints
+                function getGridSize() {
+                    return (window.innerWidth < 320) ? 1 :
+                           (window.innerWidth < 600) ? 2 :
+                           (window.innerWidth < 800) ? 3 :
+                           (window.innerWidth < 900) ? 3 : 4;
+                }
+                $window.load(function () {
+                    $('#content #related_pro').flexslider({
+                        animation: "slide",
+                        animationLoop: false,
+                        slideshow: false,
+                        itemWidth: 210,
+                        minItems: getGridSize(), // use function to pull in initial value
+                        maxItems: getGridSize() // use function to pull in initial value
+                    });
+                });
+            }());
+</script>
+<!--Related Product End-->

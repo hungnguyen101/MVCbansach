@@ -7,16 +7,16 @@
     <div class="htop">
         <div class="links">
             Xin chào <strong style="color:#d45c93">@UserNameSession</strong> 
-            <a href="@Url.Action("MyAccount", "Account", null)"><i class="fa fa-user"></i> &nbsp;Tài khoản của tôi</a> 
-            <a href="@Url.Action("Index", "Checkout", null)"><i class="fa fa-check"></i> &nbsp;Thanh toán</a>
-            <a href="@Url.Action("Logout", "Account", null)"><i class="fa fa-sign-out"></i> &nbsp;Thoát</a> 
+            <a href="@Url.Action("MyAccount", "Account")"><i class="fa fa-user"></i> &nbsp;Tài khoản của tôi</a> 
+            <a href="@Url.Action("CheckoutList", "Checkout")"><i class="fa fa-check"></i> &nbsp;Xem lại hóa đơn</a>
+            <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out"></i> &nbsp;Thoát</a> 
         </div>
     </div>
 }
 else
 {
     <div class="htop">
-        <div class="links"> <a href="@Url.Action("Login", "Account", null)"><i class="fa fa-sign-in"></i>&nbsp;Đăng nhập</a> <a href="@Url.Action("Register", "Account", null)"><i class="fa fa-registered"></i> &nbsp;Đăng ký</a> </div>
+        <div class="links"> <a href="@Url.Action("Login", "Account")"><i class="fa fa-sign-in"></i>&nbsp;Đăng nhập</a> <a href="@Url.Action("Register", "Account", null)"><i class="fa fa-registered"></i> &nbsp;Đăng ký</a> </div>
     </div>
 }
 

@@ -15,7 +15,7 @@ namespace MVCbansach.OrderService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/BookstoreService.EF")]
     [System.SerializableAttribute()]
     public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -204,7 +204,7 @@ namespace MVCbansach.OrderService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DetailOrder", Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetailOrder", Namespace="http://schemas.datacontract.org/2004/07/BookstoreService.EF")]
     [System.SerializableAttribute()]
     public partial class DetailOrder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -307,6 +307,12 @@ namespace MVCbansach.OrderService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/insert", ReplyAction="http://tempuri.org/IOrder/insertResponse")]
         System.Threading.Tasks.Task<bool> insertAsync(MVCbansach.OrderService.Order entity, MVCbansach.OrderService.DetailOrder[] items);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/update", ReplyAction="http://tempuri.org/IOrder/updateResponse")]
+        bool update(MVCbansach.OrderService.Order entity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/update", ReplyAction="http://tempuri.org/IOrder/updateResponse")]
+        System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.OrderService.Order entity);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/delete", ReplyAction="http://tempuri.org/IOrder/deleteResponse")]
         bool delete(long id);
         
@@ -377,6 +383,14 @@ namespace MVCbansach.OrderService {
         
         public System.Threading.Tasks.Task<bool> insertAsync(MVCbansach.OrderService.Order entity, MVCbansach.OrderService.DetailOrder[] items) {
             return base.Channel.insertAsync(entity, items);
+        }
+        
+        public bool update(MVCbansach.OrderService.Order entity) {
+            return base.Channel.update(entity);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.OrderService.Order entity) {
+            return base.Channel.updateAsync(entity);
         }
         
         public bool delete(long id) {

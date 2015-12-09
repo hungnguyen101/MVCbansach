@@ -1,0 +1,102 @@
+﻿@model PagedList.IPagedList<MVCbansach.ProductService.Product>
+@using PagedList.Mvc; 
+@using PagedList;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div id="column-left">
+    
+    <!--The category of product in the left-->
+    @{ Html.RenderAction("LeftProductCategory", "Product"); }
+
+    <!--The category of product in the left-->
+    @*@{ Html.RenderAction("LeftFilter", "Product"); }*@
+
+    <!--The category of product in the left-->
+    @{ Html.RenderAction("LeftTopHot", "Product"); }
+
+
+</div>
+<!--Middle Part Start-->
+<div id="content">
+    <!--Breadcrumb Part Start-->
+    <div class="breadcrumb"> <a href="@Url.Action("Index", "Home")">Trang chủ</a> &raquo; <a href="#">Tìm kiếm sản phẩm</a> </div>
+    <!--Breadcrumb Part End-->
+    <h1>Tìm kiếm sách</h1>
+    <div class="product-filter">
+    @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
+    {
+        <div class="limit">
+            <div id="search">
+                <div class="button-search"></div>
+                <input type="text" name="keyword" placeholder="Tìm kiếm..." value="" />
+            </div>
+        </div>
+
+        @*<div class="limit">
+            <b>Hiển thị số lượng:</b>
+            <select>
+                <option value="15" selected="selected">15</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <div class="sort">
+            <b>Sắp xếp theo:</b>
+            <select>
+                <option value="" selected="selected">Mặc định</option>
+                <option value="">Tên (A - Z)</option>
+                <option value="">Tên (Z - A)</option>
+                <option value="">Giá (Thấp &gt; Cao)</option>
+                <option value="">Giá (Cao &gt; Thấp)</option>
+                <option value="">Bình chọn (Cao nhất)</option>
+                <option value="">Bình chọn (Thấp nhất)</option>
+            </select>
+        </div>*@
+    }
+    </div>
+    
+
+    <!--Product Grid Start-->
+    <div class="product-grid">
+        @foreach (var item in Model)
+        {
+            <div>
+                <div class="image"><a href="@Url.Action("ProductDetail", "Product", new { id = item.id})"><img src="@item.Thumbnail" title="@item.Name" alt="@item.Name " /></a></div>
+
+                @if (item.Name != null && item.Name.Length >= 35)
+                {
+                    item.Name = item.Name.Substring(0, 35) + "...";
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id }, null)</div>
+                }
+                else
+                {
+                    item.Name = item.Name;
+                    <div class="name">@Html.ActionLink(item.Name, "ProductDetail", "Product", new { id = item.id }, null)<br /></div>
+                }
+
+                <div class="price">
+                    <span class="price-old">@string.Format("{0:0,0 ₫}", item.Price) </span> <span class="price-new">@string.Format("{0:0,0 ₫}", item.PromotionPrice)</span> <br />
+                </div>
+                <div class="cart">
+                    <input type="button" value="Thêm vào giỏ" class="button" onclick="location.href = '@Url.Action("OrderNow", "Cart", new { id = item.id })'" />
+                </div>
+            </div>
+        }
+    </div>
+    <!--Product Grid End-->
+
+    
+
+    <!--Pagination Part Start-->
+    <div class="pagination">    
+        @Html.PagedListPager(Model, page => Url.Action("SearchProduct", new { page = page }))     
+    </div>
+    <!--Pagination Part End-->
+</div>
+<!--Middle Part End-->
+@{
+    ViewBag.Title = "Tất cả sản phẩm";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+

@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8090/account?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://demo.somee.com/AccountService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AccountService.wsdl" MetadataType="Wsdl" ID="d903ad01-4547-4dd6-8120-c363d3496dec" SourceId="1" SourceUrl="http://localhost:8090/account?wsdl" />
-    <MetadataFile FileName="account.xsd" MetadataType="Schema" ID="14d4b835-772d-411c-8f95-8357d0839558" SourceId="1" SourceUrl="http://localhost:8090/account?xsd=xsd2" />
-    <MetadataFile FileName="account1.xsd" MetadataType="Schema" ID="0711310c-b123-4d30-9aec-03e28d8231c7" SourceId="1" SourceUrl="http://localhost:8090/account?xsd=xsd0" />
-    <MetadataFile FileName="account2.xsd" MetadataType="Schema" ID="99e91bf4-d547-4a98-8087-842ded3a0aef" SourceId="1" SourceUrl="http://localhost:8090/account?xsd=xsd1" />
+    <MetadataFile FileName="AccountService.xsd" MetadataType="Schema" ID="0efa75c2-a401-41e3-8439-db28536eeb07" SourceId="1" SourceUrl="http://demo.somee.com/AccountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccountService1.xsd" MetadataType="Schema" ID="cdc24de7-f14a-42b6-a946-3d43f20535a5" SourceId="1" SourceUrl="http://demo.somee.com/AccountService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccountService2.xsd" MetadataType="Schema" ID="63dc2d41-e88c-4e92-8a95-b67f35d28ad4" SourceId="1" SourceUrl="http://demo.somee.com/AccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccountService1.wsdl" MetadataType="Wsdl" ID="ae0af1e1-77cb-44b8-b899-f4491564523b" SourceId="1" SourceUrl="http://demo.somee.com/AccountService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

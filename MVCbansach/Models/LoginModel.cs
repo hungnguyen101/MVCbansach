@@ -16,7 +16,7 @@ namespace MVCbansach.Models
         [Display(Name="Tên tài khoản")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
         [MinLength(3)]
         [MaxLength(20)]
         [Display(Name="Mật khẩu")]

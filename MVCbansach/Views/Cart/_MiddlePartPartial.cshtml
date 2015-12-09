@@ -1,5 +1,5 @@
 ﻿@using MVCbansach.Controllers
-
+<script src="~/Content/js/jquery-1.7.1.min.js"></script>
 <!--Middle Part Start-->
 <div id="content">
     <!--Breadcrumb Part Start-->
@@ -35,37 +35,44 @@
                 }
                 else
                 {
+                    ViewBag.Tong = 0;
                     foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
                     {
+                        ViewBag.Tong = ViewBag.Tong + (item.Pr.PromotionPrice * item.Quantity);
                         <tr>
                             <td class="image">
                                 <a href="Product/ProductDetail/@item.Pr.id"><img src="@item.Pr.Thumbnail" alt="@item.Pr.Name" height="50" width="50" /></a>
                                 <input type="hidden" id="id_product" value="@item.Pr.id" />
+                                <input type="hidden" id="quantity_product" value="@item.Pr.Quantity" />
+
                             </td>
                             <td class="name"><a href="Product/ProductDetail/@item.Pr.id">@item.Pr.Name</a></td>
                             <td class="quantity">
-                                <input type="text" size="1" value="@item.Quantity" id="inputValue" name="inputValue" class="w30">
+                                <input onblur="checknegative(this)" type="number" min="0" size="1" value="@item.Quantity" id="inputValue" name="inputValue" class="w30">
                                 &nbsp;
-                                <input type="image" title="Cập nhật" id="quantityUpdate" name="quantityUpdate" alt="Cập nhật" src="~/Content/image/update.png" onclick="location.href = '@Url.Action("UpdateQuantity", "Cart", new { ProId = (int)item.Pr.id, quantity = item.Quantity })'">
+                                <a id="quantityUpdate" href="@Url.Action("UpdateQuantity", "Cart", new { ProId = (int)item.Pr.id, quantity = "xxx"})"><img title="Cập nhật" alt="Cập nhật" src="~/Content/image/update.png"></a>
                                 <a href="@Url.Action("Delete", "Cart", new { id = item.Pr.id })"><img title="Xóa" alt="Xóa" src="~/Content/image/remove.png" onclick="location.href = '@Url.Action("Delete", "Cart", new { id = item.Pr.id })'"></a>
                             </td>
-                            <td class="model">@item.Pr.Price</td>
-                            <td class="price">@item.Pr.PromotionPrice</td>
-                            <td class="total">@(item.Pr.PromotionPrice * item.Quantity)</td>
-                        </tr>
+                            <td class="model">@string.Format("{0:0,0}", item.Pr.Price)</td>
+                            <td class="price">@string.Format("{0:0,0}", item.Pr.PromotionPrice)</td>
+                            <td class="total">@string.Format("{0:0,0}", item.Pr.PromotionPrice * item.Quantity)</td>
+                        </tr>                                           
                     }
                 }
             </tbody>
         </table>
     </div>
+
+
+
     <div class="cart-total">
         <table id="total">
             <tbody>
                 <tr>
-                    <td class="right"><b>Tổng tiền:</b></td>
+                    <td class="right"><b>Tổng tiền: </b></td>
                 </tr>
                 <tr>
-                    <td class="right">810.00 vnđ</td>
+                    <td class="right">@string.Format("{0:0,0 vnđ}", ViewBag.Tong)</td>
                 </tr>
             </tbody>
         </table>
@@ -76,3 +83,34 @@
     </div>
 </div>
 <!--Middle Part End-->
+
+<script type="text/javascript">
+
+    // update SL
+    $("#quantityUpdate").click(function (evt) {
+        var fakedUri = $("#quantityUpdate").prop("href");
+        var uri = fakedUri.replace("xxx", $("#inputValue").val());
+        $("#quantityUpdate").prop("href", uri);
+
+    });
+
+
+    // val value in input
+    function checknegative(str) {
+        if (parseFloat(document.getElementById(str.id).value) < 0 || document.getElementById(str.id).value == "") {
+            document.getElementById(str.id).value = "";
+            document.getElementById(str.id).focus();
+            alert('Vui lòng nhập số >= 1');
+            return false;
+        }
+
+        var old_quantity = document.getElementById("inputValue").value;
+        alert(old_quantity);
+        var quantity_product = document.getElementById("quantity_product").value;
+        if (old_quantity> quantity_product) {
+            alert('Số lượng sản phẩm chỉ còn lại ' + quantity_product + ". Vui lòng nhập số lượng phù hợp!");
+            document.getElementById("inputValue").value = 1;
+            return false;
+        }
+    }
+</script>

@@ -15,7 +15,7 @@ namespace MVCbansach.ProductCategoryService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/BookstoreService.EF")]
     [System.SerializableAttribute()]
     public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -181,10 +181,12 @@ namespace MVCbansach.ProductCategoryService {
         System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category[]> findAllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/findById", ReplyAction="http://tempuri.org/IModelOf_Category/findByIdResponse")]
-        MVCbansach.ProductCategoryService.Category findById(long id);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductCategoryService.Category[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductCategoryService.Category))]
+        MVCbansach.ProductCategoryService.Category findById(object id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/findById", ReplyAction="http://tempuri.org/IModelOf_Category/findByIdResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category> findByIdAsync(long id);
+        System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category> findByIdAsync(object id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/insert", ReplyAction="http://tempuri.org/IModelOf_Category/insertResponse")]
         long insert(MVCbansach.ProductCategoryService.Category entity);
@@ -199,10 +201,12 @@ namespace MVCbansach.ProductCategoryService {
         System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.ProductCategoryService.Category entity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/delete", ReplyAction="http://tempuri.org/IModelOf_Category/deleteResponse")]
-        bool delete(long id);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductCategoryService.Category[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductCategoryService.Category))]
+        bool delete(object id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Category/delete", ReplyAction="http://tempuri.org/IModelOf_Category/deleteResponse")]
-        System.Threading.Tasks.Task<bool> deleteAsync(long id);
+        System.Threading.Tasks.Task<bool> deleteAsync(object id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -240,11 +244,11 @@ namespace MVCbansach.ProductCategoryService {
             return base.Channel.findAllAsync();
         }
         
-        public MVCbansach.ProductCategoryService.Category findById(long id) {
+        public MVCbansach.ProductCategoryService.Category findById(object id) {
             return base.Channel.findById(id);
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category> findByIdAsync(long id) {
+        public System.Threading.Tasks.Task<MVCbansach.ProductCategoryService.Category> findByIdAsync(object id) {
             return base.Channel.findByIdAsync(id);
         }
         
@@ -264,11 +268,11 @@ namespace MVCbansach.ProductCategoryService {
             return base.Channel.updateAsync(entity);
         }
         
-        public bool delete(long id) {
+        public bool delete(object id) {
             return base.Channel.delete(id);
         }
         
-        public System.Threading.Tasks.Task<bool> deleteAsync(long id) {
+        public System.Threading.Tasks.Task<bool> deleteAsync(object id) {
             return base.Channel.deleteAsync(id);
         }
     }

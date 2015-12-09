@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -70,6 +74,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -77,6 +84,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -230,23 +240,6 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\BookStoreOnline.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BookStoreOnline.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\BookStoreOnline.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
-      <LastGenOutput>BookStoreOnline.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\BookStoreOnline.edmx.diagram">
-      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\BookStoreOnline.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
-      <LastGenOutput>BookStoreOnline.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -277,39 +270,56 @@
     <Content Include="Service References\OrderService\MVCbansach.OrderService.DetailOrder.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ProductCategoryService\category.xsd">
+    <None Include="Service References\AccountService\AccountService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ProductCategoryService\category1.xsd">
+    <None Include="Service References\AccountService\AccountService1.wsdl" />
+    <None Include="Service References\AccountService\AccountService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ProductCategoryService\category2.xsd">
+    <None Include="Service References\AccountService\AccountService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ProductCategoryService\CategoryService.wsdl" />
+    <None Include="Service References\OrderService\OrderService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\OrderService1.wsdl" />
+    <None Include="Service References\OrderService\OrderService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\OrderService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\OrderService.disco" />
+    <None Include="Service References\ProductCategoryService\CategoryService.disco" />
     <Content Include="Service References\ProductCategoryService\MVCbansach.ProductCategoryService.Category.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\ProductCategoryService\CategoryService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\CategoryService1.wsdl" />
+    <None Include="Service References\ProductCategoryService\CategoryService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductCategoryService\CategoryService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ProductService\configuration91.svcinfo" />
     <None Include="Service References\ProductService\configuration.svcinfo" />
     <Content Include="Service References\ProductService\MVCbansach.ProductService.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ProductService\MVCbansach.ProductService.findAllResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ProductService\MVCbansach.ProductService.findByIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ProductService\MVCbansach.ProductService.findProuctsByCategoryResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ProductService\MVCbansach.ProductService.insertResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ProductService\MVCbansach.ProductService.updateResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
+    <None Include="Service References\ProductService\ProductService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\ProductService1.wsdl" />
+    <None Include="Service References\ProductService\ProductService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductService\ProductService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ProductService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -338,6 +348,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\ProductService\ProductService.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -491,86 +502,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\About.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Account.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Author.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookStoreOnline.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookStoreOnline.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookStoreOnline.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookStoreOnline.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookStoreOnline.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\Category.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contact.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Content.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ContentTag.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Feedback.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Footer.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\Menu.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MenuType.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OderDetail.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Order.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PaymentMethod.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductCategory.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Shipping.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Slide.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SystemConfig.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Tag.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserGroup.cs">
-      <DependentUpon>BookStoreOnline.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ProductService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -628,16 +561,6 @@
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\Account\List.cshtml" />
     <Content Include="Views\Account\Auth.cshtml" />
-    <None Include="Service References\ProductService\product.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductService\product1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductService\product2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductService\ProductService.wsdl" />
     <None Include="Service References\AuthorSevice\author.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -648,16 +571,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AuthorSevice\AuthorService.wsdl" />
-    <None Include="Service References\OrderService\order.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrderService\order1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrderService\order2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\OrderService\OrderService.wsdl" />
     <Content Include="Views\ProductCategory\_NavMenuPartial.cshtml" />
     <Content Include="Views\Product\LeftProductCategory.cshtml" />
     <Content Include="Views\Product\LeftTopHot.cshtml" />
@@ -665,18 +578,12 @@
     <Content Include="Views\Product\LeftPromotionProduct.cshtml" />
     <Content Include="Views\Product\LeftFilter.cshtml" />
     <Content Include="Views\Product\ProductByCategory.cshtml" />
-    <None Include="Service References\AccountService\account.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AccountService\account1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AccountService\account2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AccountService\AccountService.wsdl" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\LeftPartPartial.cshtml" />
+    <Content Include="Views\Checkout\CheckoutList.cshtml" />
+    <Content Include="Views\Product\SearchProduct.cshtml" />
+    <Content Include="Views\Checkout\CheckoutDetail.cshtml" />
+    <Content Include="Views\Product\RelatedProducts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

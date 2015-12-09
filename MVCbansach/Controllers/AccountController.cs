@@ -16,7 +16,6 @@ namespace MVCbansach.Controllers
 {
     public class AccountController : Controller
     {
-        BookStoreOnlineEntities db = new BookStoreOnlineEntities();
         AccountService.AccountClient serv = new AccountService.AccountClient();
         
         // GET: Account
@@ -33,33 +32,31 @@ namespace MVCbansach.Controllers
         {
             if (AccountOjb.Username != null && AccountOjb.Password != null)
             {
-                if (ModelState.IsValid)
+                AccountService.Account account = new AccountService.Account();
+                account = serv.Authenticate(AccountOjb.Username, getMd5Hash(AccountOjb.Password));
+                if (account == null)
                 {
-                    AccountService.Account account = serv.Authenticate(AccountOjb.Username, getMd5Hash(AccountOjb.Password));
-                    if (account == null)
-                    {
-                        ModelState.AddModelError("", "Tên đăng nhập hoặc tài khoản không đúng");
-                        ViewBag.LoginFaild = "Tên đăng nhập hoặc tài khoản không đúng";
-                        return RedirectToAction("Login", "Account");
-                    }
-                    else
-                    {
-                        Session["username"] = AccountOjb.Username;
-                        Session["userid"] = serv.findById(account.id).id;
-                        return RedirectToAction("Index", "Home");
-                    }
+                    ViewBag.LoginFail = "Tên đăng nhập hoặc tài khoản không đúng";
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    ViewBag.LoginFaild = "Kiểm tra thông tin không hợp lệ";
-                    return RedirectToAction("Login", "Account", AccountOjb);
+                    Session["username"] = AccountOjb.Username;
+                    Session["userid"] = serv.findById(account.id).id;
+                    if (Session["cart"] != null)
+                    {
+                        return RedirectToAction("Index", "Checkout");
+                    }
+                    else
+                    {
+                        return RedirectToAction("AllProduct", "Product");
+                    }
+
                 }
             }
-            else
-            {
-                ViewBag.LoginFaild = "Vui lòng nhập chính xác thông tin";
-                return RedirectToAction("Login", "Account", AccountOjb);
-            }
+            
+            ViewBag.LoginFail = "Vui lòng nhập chính xác thông tin";
+            return RedirectToAction("Login", "Account");
         }
 
 

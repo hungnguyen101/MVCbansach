@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="4NoYJvXcJUezcGr1cUtVl0elArk=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="LJjeZZ9Fs9FjIxhBa0MWVBVFm8Q=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IProduct">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IProduct" contract="ProductService.IProduct" bindingType="basicHttpBinding" address="http://localhost:8090/product/product" bindingConfiguration="BasicHttpBinding_IProduct">
+    <endpoint name="BasicHttpBinding_IProduct" contract="ProductService.IProduct" bindingType="basicHttpBinding" address="http://demo.somee.com/ProductService.svc/product" bindingConfiguration="BasicHttpBinding_IProduct">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8090/product/product</serializedValue>
+          <serializedValue>http://demo.somee.com/ProductService.svc/product</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

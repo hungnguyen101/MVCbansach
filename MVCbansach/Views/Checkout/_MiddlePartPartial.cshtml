@@ -20,36 +20,26 @@
                             <td class="total">Tổng</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        
-                            @if (Session["cart"] == null)
-                            {
-
-                            }
+                    <tbody> 
+                        @{
+                            ViewBag.Total = 0;
+                        }                      
                             @foreach (MVCbansach.Models.Item item in (List<MVCbansach.Models.Item>)Session["cart"])
                             {
+                                ViewBag.Total = ViewBag.Total + (item.Quantity * item.Pr.PromotionPrice);
                                 <tr>
                                     <td class="name"><a href="#">@item.Pr.Name</a></td>
                                     <td class="model">@item.Quantity</td>
-                                    <td class="quantity">@item.Pr.Price</td>
-                                    <td class="price">@item.Pr.PromotionPrice</td>
-                                    <td class="total">@(item.Pr.PromotionPrice * item.Pr.Quantity)</td>
-                                    
+                                    <td class="quantity">@string.Format("{0:0,0}", item.Pr.Price)</td>
+                                    <td class="price">@string.Format("{0:0,0}", item.Pr.PromotionPrice)</td>
+                                    <td class="total">@string.Format("{0:0,0}", item.Quantity * item.Pr.PromotionPrice)</td>                                 
                                 </tr>
                             }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="price" colspan="4"><b>Sub-Total:</b></td>
-                            <td class="total">£51.11</td>
-                        </tr>
-                        <tr>
-                            <td class="price" colspan="4"><b>Flat Shipping Rate:</b></td>
-                            <td class="total">£3.19</td>
-                        </tr>
-                        <tr>
-                            <td class="price" colspan="4"><b>Total:</b></td>
-                            <td class="total">£66.37</td>
+                            <td class="price" colspan="4"><b>Tổng:</b></td>
+                            <td class="total">@string.Format("{0:0,0 ₫}", ViewBag.Total)</td>
                         </tr>
                     </tfoot>
                 </table>

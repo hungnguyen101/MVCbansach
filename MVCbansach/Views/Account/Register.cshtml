@@ -20,7 +20,7 @@
 
 
     <!--Form register account-->
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { onsubmit = "return checkForm()" }))
     {
         @Html.AntiForgeryToken() // chống nhập form nhiều lần
         @Html.ValidationSummary(true) 
@@ -29,19 +29,19 @@
                 <tbody>
                     <tr>
                         <td><span class="required">*</span> Họ tên:</td>
-                        <td>@Html.TextBoxFor(m => m.Username, new { @class = "large-field" })</td>
+                        <td>@Html.TextBoxFor(m => m.Username, new { @class = "large-field", @id = "username" })</td>
                     </tr>
                     <tr>
                         <td><span class="required">*</span> E-Mail:</td>
-                        <td>@Html.TextBoxFor(m => m.Email, new { @class = "large-field" })</td>
+                        <td>@Html.TextBoxFor(m => m.Email, new { @class = "large-field", @id = "email",  @onkeyup = "return checkMail()" })</td>
                     </tr>
                     <tr>
                         <td><span class="required">*</span> Số điện thoại:</td>
-                        <td>@Html.TextBoxFor(m => m.Phone, new { @class = "large-field" })</td>
+                        <td>@Html.TextBoxFor(m => m.Phone, new { @class = "large-field", @id = "phone" })</td>
                     </tr>
                     <tr>
-                        <td><span class="required">*</span> Adress:</td>
-                        <td>@Html.TextBoxFor(m => m.Address, new { @class = "large-field" })</td>
+                        <td><span class="required">*</span> Địa chỉ:</td>
+                        <td>@Html.TextBoxFor(m => m.Address, new { @class = "large-field", @id = "address" })</td>
                     </tr>
                 </tbody>
             </table>
@@ -53,11 +53,11 @@
                 <tbody>
                     <tr>
                         <td><span class="required">*</span> Mật khẩu:</td>
-                        <td>@Html.TextBoxFor(m => m.Password, new { @class = "large-field" })</td>
+                        <td>@Html.TextBoxFor(m => m.Password, new { @class = "large-field", @id = "pass1" })</td>
                     </tr>
                     <tr>
                         <td><span class="required">*</span> Xác nhận mật khẩu:</td>
-                        <td><input class="large-field" type="password" value="" name="confirm"></td>
+                        <td>@Html.TextBoxFor(m => m.Password, new { @class = "large-field", @id = "pass2", @onkeyup = "return confirmPass()" })</td>
                     </tr>
                 </tbody>
             </table>
@@ -65,14 +65,68 @@
 
         <div class="buttons">
             <div class="left">
-                <p>
-                    <input type="checkbox" value="1" name="agree">
-                    &nbsp; Tôi đã đọc và đồng ý <a alt="Điều khoản sủ dụng" href="#" class="colorbox cboxElement"><b>điều khoản sử dụng</b></a>
-                </p>
-                <input type="submit" class="button" value="Tiếp tục">
+                <input type="submit" onsubmit="return checkForm()" class="button" value="Đăng ký">
             </div>
         </div>
     }
 
 </div>
 <!--Middle Part End-->
+<script>
+    function confirmPass() {
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+        if (pass1 == pass2) {
+            document.getElementById("pass1").style.borderColor = "#00ff00";
+            document.getElementById("pass2").style.borderColor = "#00ff00";
+        } else {
+            document.getElementById("pass1").style.borderColor = "#ff0000";
+            document.getElementById("pass2").style.borderColor = "#ff0000";
+        }
+    }
+
+    function checkForm()
+    {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var address = document.getElementById("address").value;
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+        if (username == "") {
+            document.getElementById("username").focus();
+            alert("Vui lòng nhập tên tài khoản"); return false;
+        }
+        if (email == "") {
+            document.getElementById("email").focus();
+            alert("Vui lòng nhập địa chỉ email"); return false;
+        }
+        if (phone == "") {
+            document.getElementById("phone").focus();
+            alert("Vui lòng nhập số điện thoại"); return false;
+        }
+        if (address == "") {
+            document.getElementById("address").focus();
+            alert("Vui lòng nhập địa chỉ"); return false;
+        }
+        if (pass1 == "") {
+            document.getElementById("pass1").focus();
+            alert("Vui lòng nhập mật khẩu"); return false;
+        }
+        if (pass2 == "") {
+            document.getElementById("pass2").focus();
+            alert("Vui lòng xác nhận mật khẩu"); return false;
+        }
+
+        if (pass1 != pass2) { alert("Nhập lại mật khẩu không chính xác"); return false; }
+        else return true;
+    }
+
+</script>
+<script>
+    function validateEmail(email) {
+        var re = /^[_a-z0-9-A-Z-]+(\.[_a-z0-9-A-Z-]+)@@[a-z0-9-A-Z-]+(\.[a-z0-9-A-Z-]+)*(\.[a-z]{2,4})$/;
+        return re.test(email);
+    }
+
+</script>

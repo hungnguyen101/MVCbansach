@@ -55,4 +55,8 @@ C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\System.Web.Helpers.xml
 C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\System.Web.Mvc.xml
 C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\obj\Debug\MVCbansach.dll
 C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\obj\Debug\MVCbansach.pdb
-C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\obj\Debug\MVCbansach.csprojResolveAssemblyReference.cache
+C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\Antlr3.Runtime.dll
+C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\System.Web.Optimization.dll
+C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\WebGrease.dll
+C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\Antlr3.Runtime.pdb
+C:\Users\ethanbladen\Desktop\MVCbansach\MVCbansach\bin\System.Web.Optimization.xml

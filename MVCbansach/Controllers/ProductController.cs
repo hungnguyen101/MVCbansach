@@ -33,7 +33,7 @@ namespace MVCbansach.Controllers
             else
             {
                 long id = Convert.ToInt64(_idRul);
-                List<ProductService.Product> model = productServ.findProuctsByCategory((int)id).ToList();
+                List<ProductService.Product> model = productServ.findProductsByCategory(Convert.ToInt32(id)).ToList();
                 if (model == null)
                 {
                     return HttpNotFound();
@@ -45,15 +45,39 @@ namespace MVCbansach.Controllers
             }        
 
         }
+        public ActionResult SearchProduct(string keyword, int page = 1, int pageSize = 12)
+        {
+            //1-0.000 ₫- 100.000 ₫    2-100.000 ₫- 500.000 ₫   3-trên 500.000 ₫
+            List<ProductService.Product> model = productServ.findByKeyword(keyword).ToList();
+            
+
+            ////if (keyword == null)
+            ////{
+            ////    keyword = "";
+            ////}
+            ////model = productServ.findAll().ToList();
+            ////if (checkboxVal == 1)
+            ////{
+            ////  model =  productServ.findByPrice(0, 100000).ToList();//1
+            ////}
+            ////else if (checkboxVal == 2)
+            ////{
+            ////    model = productServ.findByPrice(100000, 500000).ToList();//2
+            ////}
+            ////else if (checkboxVal == 3)
+            ////{
+            ////    productServ.findByPrice(500000, 1000000);//3
+            ////}                     
+            return View(model.ToPagedList(page, pageSize));
+        }
 
         public ActionResult ProductDetail(int id)
         {
-            var _idRul = id;//Url.RequestContext.RouteData.Values["id"];
-            if (_idRul == null)
+            if (id == 0)
             {
                 return HttpNotFound();
             }else{
-                ProductService.Product product = productServ.findById(Convert.ToInt64(_idRul));
+                ProductService.Product product = productServ.findById(Convert.ToInt64(id));
                 if (product == null)
                 {
                     return HttpNotFound();
@@ -63,8 +87,25 @@ namespace MVCbansach.Controllers
         }
         public PartialViewResult _NavMenuPartial()
         {
+
             List<ProductCategoryService.Category> product = proCategoryServ.findAll().ToList();
             return PartialView(product);
+        }
+
+        public PartialViewResult RelatedProducts()
+        {
+            var _idRul = Url.RequestContext.RouteData.Values["id"];
+            long id = Convert.ToInt64(_idRul);
+            ProductService.Product CurrentProduct = productServ.findById(id);
+            List<ProductService.Product> products = productServ.findProductsByCategory(Convert.ToInt32(CurrentProduct.Category)).ToList();
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].id == id)
+                {
+                    products.RemoveAt(i);
+                }
+            }
+            return PartialView(products);          
         }
         public PartialViewResult _SearchProduct()
         {

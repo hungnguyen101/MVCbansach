@@ -9,443 +9,282 @@
 //------------------------------------------------------------------------------
 
 namespace MVCbansach.ProductService {
+    using System.Runtime.Serialization;
+    using System;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductService.IProduct")]
-    public interface IProduct {
-        
-        // CODEGEN: Parameter 'findAllResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findAll", ReplyAction="http://tempuri.org/IModelOf_Product/findAllResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        MVCbansach.ProductService.findAllResponse findAll(MVCbansach.ProductService.findAllRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findAll", ReplyAction="http://tempuri.org/IModelOf_Product/findAllResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.findAllResponse> findAllAsync(MVCbansach.ProductService.findAllRequest request);
-        
-        // CODEGEN: Parameter 'findByIdResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findById", ReplyAction="http://tempuri.org/IModelOf_Product/findByIdResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        MVCbansach.ProductService.findByIdResponse findById(MVCbansach.ProductService.findByIdRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findById", ReplyAction="http://tempuri.org/IModelOf_Product/findByIdResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.findByIdResponse> findByIdAsync(MVCbansach.ProductService.findByIdRequest request);
-        
-        // CODEGEN: Parameter 'entity' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/insert", ReplyAction="http://tempuri.org/IModelOf_Product/insertResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        MVCbansach.ProductService.insertResponse insert(MVCbansach.ProductService.insertRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/insert", ReplyAction="http://tempuri.org/IModelOf_Product/insertResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.insertResponse> insertAsync(MVCbansach.ProductService.insertRequest request);
-        
-        // CODEGEN: Parameter 'entity' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/update", ReplyAction="http://tempuri.org/IModelOf_Product/updateResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        MVCbansach.ProductService.updateResponse update(MVCbansach.ProductService.updateRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/update", ReplyAction="http://tempuri.org/IModelOf_Product/updateResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.updateResponse> updateAsync(MVCbansach.ProductService.updateRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/delete", ReplyAction="http://tempuri.org/IModelOf_Product/deleteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool delete(long id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/delete", ReplyAction="http://tempuri.org/IModelOf_Product/deleteResponse")]
-        System.Threading.Tasks.Task<bool> deleteAsync(long id);
-        
-        // CODEGEN: Parameter 'findProuctsByCategoryResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findProuctsByCategory", ReplyAction="http://tempuri.org/IProduct/findProuctsByCategoryResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        MVCbansach.ProductService.findProuctsByCategoryResponse findProuctsByCategory(MVCbansach.ProductService.findProuctsByCategoryRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findProuctsByCategory", ReplyAction="http://tempuri.org/IProduct/findProuctsByCategoryResponse")]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.findProuctsByCategoryResponse> findProuctsByCategoryAsync(MVCbansach.ProductService.findProuctsByCategoryRequest request);
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
-    public partial class Product : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/BookstoreService.EF")]
+    [System.SerializableAttribute()]
+    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.Nullable<int> categoryField;
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private bool categoryFieldSpecified;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CategoryField;
         
-        private System.Nullable<System.DateTime> createdAtField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CreatedAtField;
         
-        private bool createdAtFieldSpecified;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
         
-        private string createdByField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
         
-        private string descriptionField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ModifiedAtField;
         
-        private System.Xml.XmlElement descriptionXMLField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
         
-        private System.Nullable<System.DateTime> modifiedAtField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MoreImagesField;
         
-        private bool modifiedAtFieldSpecified;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
         
-        private string modifiedByField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> PriceField;
         
-        private string moreImagesField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PromotionField;
         
-        private string nameField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> PromotionPriceField;
         
-        private System.Nullable<decimal> priceField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> QuantityField;
         
-        private bool priceFieldSpecified;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> ShowOnHomeField;
         
-        private System.Nullable<int> promotionField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> StatusField;
         
-        private bool promotionFieldSpecified;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ThumbnailField;
         
-        private System.Nullable<decimal> promotionPriceField;
-        
-        private bool promotionPriceFieldSpecified;
-        
-        private System.Nullable<int> quantityField;
-        
-        private bool quantityFieldSpecified;
-        
-        private System.Nullable<bool> showOnHomeField;
-        
-        private bool showOnHomeFieldSpecified;
-        
-        private System.Nullable<bool> statusField;
-        
-        private bool statusFieldSpecified;
-        
-        private string thumbnailField;
-        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long idField;
         
-        private bool idFieldSpecified;
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> Category {
             get {
-                return this.categoryField;
+                return this.CategoryField;
             }
             set {
-                this.categoryField = value;
-                this.RaisePropertyChanged("Category");
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool CategorySpecified {
-            get {
-                return this.categoryFieldSpecified;
-            }
-            set {
-                this.categoryFieldSpecified = value;
-                this.RaisePropertyChanged("CategorySpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> CreatedAt {
             get {
-                return this.createdAtField;
+                return this.CreatedAtField;
             }
             set {
-                this.createdAtField = value;
-                this.RaisePropertyChanged("CreatedAt");
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool CreatedAtSpecified {
-            get {
-                return this.createdAtFieldSpecified;
-            }
-            set {
-                this.createdAtFieldSpecified = value;
-                this.RaisePropertyChanged("CreatedAtSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string CreatedBy {
             get {
-                return this.createdByField;
+                return this.CreatedByField;
             }
             set {
-                this.createdByField = value;
-                this.RaisePropertyChanged("CreatedBy");
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description {
             get {
-                return this.descriptionField;
+                return this.DescriptionField;
             }
             set {
-                this.descriptionField = value;
-                this.RaisePropertyChanged("Description");
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
-        public System.Xml.XmlElement DescriptionXML {
-            get {
-                return this.descriptionXMLField;
-            }
-            set {
-                this.descriptionXMLField = value;
-                this.RaisePropertyChanged("DescriptionXML");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> ModifiedAt {
             get {
-                return this.modifiedAtField;
+                return this.ModifiedAtField;
             }
             set {
-                this.modifiedAtField = value;
-                this.RaisePropertyChanged("ModifiedAt");
+                if ((this.ModifiedAtField.Equals(value) != true)) {
+                    this.ModifiedAtField = value;
+                    this.RaisePropertyChanged("ModifiedAt");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ModifiedAtSpecified {
-            get {
-                return this.modifiedAtFieldSpecified;
-            }
-            set {
-                this.modifiedAtFieldSpecified = value;
-                this.RaisePropertyChanged("ModifiedAtSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string ModifiedBy {
             get {
-                return this.modifiedByField;
+                return this.ModifiedByField;
             }
             set {
-                this.modifiedByField = value;
-                this.RaisePropertyChanged("ModifiedBy");
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string MoreImages {
             get {
-                return this.moreImagesField;
+                return this.MoreImagesField;
             }
             set {
-                this.moreImagesField = value;
-                this.RaisePropertyChanged("MoreImages");
+                if ((object.ReferenceEquals(this.MoreImagesField, value) != true)) {
+                    this.MoreImagesField = value;
+                    this.RaisePropertyChanged("MoreImages");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
-                return this.nameField;
+                return this.NameField;
             }
             set {
-                this.nameField = value;
-                this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> Price {
             get {
-                return this.priceField;
+                return this.PriceField;
             }
             set {
-                this.priceField = value;
-                this.RaisePropertyChanged("Price");
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool PriceSpecified {
-            get {
-                return this.priceFieldSpecified;
-            }
-            set {
-                this.priceFieldSpecified = value;
-                this.RaisePropertyChanged("PriceSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> Promotion {
             get {
-                return this.promotionField;
+                return this.PromotionField;
             }
             set {
-                this.promotionField = value;
-                this.RaisePropertyChanged("Promotion");
+                if ((this.PromotionField.Equals(value) != true)) {
+                    this.PromotionField = value;
+                    this.RaisePropertyChanged("Promotion");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool PromotionSpecified {
-            get {
-                return this.promotionFieldSpecified;
-            }
-            set {
-                this.promotionFieldSpecified = value;
-                this.RaisePropertyChanged("PromotionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> PromotionPrice {
             get {
-                return this.promotionPriceField;
+                return this.PromotionPriceField;
             }
             set {
-                this.promotionPriceField = value;
-                this.RaisePropertyChanged("PromotionPrice");
+                if ((this.PromotionPriceField.Equals(value) != true)) {
+                    this.PromotionPriceField = value;
+                    this.RaisePropertyChanged("PromotionPrice");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool PromotionPriceSpecified {
-            get {
-                return this.promotionPriceFieldSpecified;
-            }
-            set {
-                this.promotionPriceFieldSpecified = value;
-                this.RaisePropertyChanged("PromotionPriceSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> Quantity {
             get {
-                return this.quantityField;
+                return this.QuantityField;
             }
             set {
-                this.quantityField = value;
-                this.RaisePropertyChanged("Quantity");
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool QuantitySpecified {
-            get {
-                return this.quantityFieldSpecified;
-            }
-            set {
-                this.quantityFieldSpecified = value;
-                this.RaisePropertyChanged("QuantitySpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ShowOnHome {
             get {
-                return this.showOnHomeField;
+                return this.ShowOnHomeField;
             }
             set {
-                this.showOnHomeField = value;
-                this.RaisePropertyChanged("ShowOnHome");
+                if ((this.ShowOnHomeField.Equals(value) != true)) {
+                    this.ShowOnHomeField = value;
+                    this.RaisePropertyChanged("ShowOnHome");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ShowOnHomeSpecified {
-            get {
-                return this.showOnHomeFieldSpecified;
-            }
-            set {
-                this.showOnHomeFieldSpecified = value;
-                this.RaisePropertyChanged("ShowOnHomeSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> Status {
             get {
-                return this.statusField;
+                return this.StatusField;
             }
             set {
-                this.statusField = value;
-                this.RaisePropertyChanged("Status");
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool StatusSpecified {
-            get {
-                return this.statusFieldSpecified;
-            }
-            set {
-                this.statusFieldSpecified = value;
-                this.RaisePropertyChanged("StatusSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Thumbnail {
             get {
-                return this.thumbnailField;
+                return this.ThumbnailField;
             }
             set {
-                this.thumbnailField = value;
-                this.RaisePropertyChanged("Thumbnail");
+                if ((object.ReferenceEquals(this.ThumbnailField, value) != true)) {
+                    this.ThumbnailField = value;
+                    this.RaisePropertyChanged("Thumbnail");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public long id {
             get {
                 return this.idField;
             }
             set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idSpecified {
-            get {
-                return this.idFieldSpecified;
-            }
-            set {
-                this.idFieldSpecified = value;
-                this.RaisePropertyChanged("idSpecified");
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
             }
         }
         
@@ -459,174 +298,67 @@ namespace MVCbansach.ProductService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAll", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class findAllRequest {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductService.IProduct")]
+    public interface IProduct {
         
-        public findAllRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class findAllResponse {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findAll", ReplyAction="http://tempuri.org/IModelOf_Product/findAllResponse")]
+        MVCbansach.ProductService.Product[] findAll();
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
-        public MVCbansach.ProductService.Product[] findAllResult;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findAll", ReplyAction="http://tempuri.org/IModelOf_Product/findAllResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findAllAsync();
         
-        public findAllResponse() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findById", ReplyAction="http://tempuri.org/IModelOf_Product/findByIdResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductService.Product[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductService.Product))]
+        MVCbansach.ProductService.Product findById(object id);
         
-        public findAllResponse(MVCbansach.ProductService.Product[] findAllResult) {
-            this.findAllResult = findAllResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findById", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class findByIdRequest {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/findById", ReplyAction="http://tempuri.org/IModelOf_Product/findByIdResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductService.Product> findByIdAsync(object id);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public long id;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/insert", ReplyAction="http://tempuri.org/IModelOf_Product/insertResponse")]
+        long insert(MVCbansach.ProductService.Product entity);
         
-        public findByIdRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/insert", ReplyAction="http://tempuri.org/IModelOf_Product/insertResponse")]
+        System.Threading.Tasks.Task<long> insertAsync(MVCbansach.ProductService.Product entity);
         
-        public findByIdRequest(long id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findByIdResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class findByIdResponse {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/update", ReplyAction="http://tempuri.org/IModelOf_Product/updateResponse")]
+        bool update(MVCbansach.ProductService.Product entity);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public MVCbansach.ProductService.Product findByIdResult;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/update", ReplyAction="http://tempuri.org/IModelOf_Product/updateResponse")]
+        System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.ProductService.Product entity);
         
-        public findByIdResponse() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/delete", ReplyAction="http://tempuri.org/IModelOf_Product/deleteResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductService.Product[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.ProductService.Product))]
+        bool delete(object id);
         
-        public findByIdResponse(MVCbansach.ProductService.Product findByIdResult) {
-            this.findByIdResult = findByIdResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insert", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertRequest {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Product/delete", ReplyAction="http://tempuri.org/IModelOf_Product/deleteResponse")]
+        System.Threading.Tasks.Task<bool> deleteAsync(object id);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public MVCbansach.ProductService.Product entity;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findProductsByCategory", ReplyAction="http://tempuri.org/IProduct/findProductsByCategoryResponse")]
+        MVCbansach.ProductService.Product[] findProductsByCategory(long catId);
         
-        public insertRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findProductsByCategory", ReplyAction="http://tempuri.org/IProduct/findProductsByCategoryResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findProductsByCategoryAsync(long catId);
         
-        public insertRequest(MVCbansach.ProductService.Product entity) {
-            this.entity = entity;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertResponse {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findByKeyword", ReplyAction="http://tempuri.org/IProduct/findByKeywordResponse")]
+        MVCbansach.ProductService.Product[] findByKeyword(string key);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public long insertResult;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findByKeyword", ReplyAction="http://tempuri.org/IProduct/findByKeywordResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findByKeywordAsync(string key);
         
-        public insertResponse() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findByPrice", ReplyAction="http://tempuri.org/IProduct/findByPriceResponse")]
+        MVCbansach.ProductService.Product[] findByPrice(decimal start, decimal end);
         
-        public insertResponse(long insertResult) {
-            this.insertResult = insertResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="update", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class updateRequest {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/findByPrice", ReplyAction="http://tempuri.org/IProduct/findByPriceResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findByPriceAsync(decimal start, decimal end);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public MVCbansach.ProductService.Product entity;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/advanceSearch", ReplyAction="http://tempuri.org/IProduct/advanceSearchResponse")]
+        MVCbansach.ProductService.Product[] advanceSearch(string keyword, decimal startPrice, decimal endPrice, int catId);
         
-        public updateRequest() {
-        }
-        
-        public updateRequest(MVCbansach.ProductService.Product entity) {
-            this.entity = entity;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="updateResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class updateResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool updateResult;
-        
-        public updateResponse() {
-        }
-        
-        public updateResponse(bool updateResult) {
-            this.updateResult = updateResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findProuctsByCategory", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class findProuctsByCategoryRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int id;
-        
-        public findProuctsByCategoryRequest() {
-        }
-        
-        public findProuctsByCategoryRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findProuctsByCategoryResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class findProuctsByCategoryResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
-        public MVCbansach.ProductService.Product[] findProuctsByCategoryResult;
-        
-        public findProuctsByCategoryResponse() {
-        }
-        
-        public findProuctsByCategoryResponse(MVCbansach.ProductService.Product[] findProuctsByCategoryResult) {
-            this.findProuctsByCategoryResult = findProuctsByCategoryResult;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/advanceSearch", ReplyAction="http://tempuri.org/IProduct/advanceSearchResponse")]
+        System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> advanceSearchAsync(string keyword, decimal startPrice, decimal endPrice, int catId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -656,125 +388,76 @@ namespace MVCbansach.ProductService {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MVCbansach.ProductService.findAllResponse MVCbansach.ProductService.IProduct.findAll(MVCbansach.ProductService.findAllRequest request) {
-            return base.Channel.findAll(request);
-        }
-        
         public MVCbansach.ProductService.Product[] findAll() {
-            MVCbansach.ProductService.findAllRequest inValue = new MVCbansach.ProductService.findAllRequest();
-            MVCbansach.ProductService.findAllResponse retVal = ((MVCbansach.ProductService.IProduct)(this)).findAll(inValue);
-            return retVal.findAllResult;
+            return base.Channel.findAll();
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.findAllResponse> MVCbansach.ProductService.IProduct.findAllAsync(MVCbansach.ProductService.findAllRequest request) {
-            return base.Channel.findAllAsync(request);
+        public System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findAllAsync() {
+            return base.Channel.findAllAsync();
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.ProductService.findAllResponse> findAllAsync() {
-            MVCbansach.ProductService.findAllRequest inValue = new MVCbansach.ProductService.findAllRequest();
-            return ((MVCbansach.ProductService.IProduct)(this)).findAllAsync(inValue);
+        public MVCbansach.ProductService.Product findById(object id) {
+            return base.Channel.findById(id);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MVCbansach.ProductService.findByIdResponse MVCbansach.ProductService.IProduct.findById(MVCbansach.ProductService.findByIdRequest request) {
-            return base.Channel.findById(request);
-        }
-        
-        public MVCbansach.ProductService.Product findById(long id) {
-            MVCbansach.ProductService.findByIdRequest inValue = new MVCbansach.ProductService.findByIdRequest();
-            inValue.id = id;
-            MVCbansach.ProductService.findByIdResponse retVal = ((MVCbansach.ProductService.IProduct)(this)).findById(inValue);
-            return retVal.findByIdResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.findByIdResponse> MVCbansach.ProductService.IProduct.findByIdAsync(MVCbansach.ProductService.findByIdRequest request) {
-            return base.Channel.findByIdAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MVCbansach.ProductService.findByIdResponse> findByIdAsync(long id) {
-            MVCbansach.ProductService.findByIdRequest inValue = new MVCbansach.ProductService.findByIdRequest();
-            inValue.id = id;
-            return ((MVCbansach.ProductService.IProduct)(this)).findByIdAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MVCbansach.ProductService.insertResponse MVCbansach.ProductService.IProduct.insert(MVCbansach.ProductService.insertRequest request) {
-            return base.Channel.insert(request);
+        public System.Threading.Tasks.Task<MVCbansach.ProductService.Product> findByIdAsync(object id) {
+            return base.Channel.findByIdAsync(id);
         }
         
         public long insert(MVCbansach.ProductService.Product entity) {
-            MVCbansach.ProductService.insertRequest inValue = new MVCbansach.ProductService.insertRequest();
-            inValue.entity = entity;
-            MVCbansach.ProductService.insertResponse retVal = ((MVCbansach.ProductService.IProduct)(this)).insert(inValue);
-            return retVal.insertResult;
+            return base.Channel.insert(entity);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.insertResponse> MVCbansach.ProductService.IProduct.insertAsync(MVCbansach.ProductService.insertRequest request) {
-            return base.Channel.insertAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<MVCbansach.ProductService.insertResponse> insertAsync(MVCbansach.ProductService.Product entity) {
-            MVCbansach.ProductService.insertRequest inValue = new MVCbansach.ProductService.insertRequest();
-            inValue.entity = entity;
-            return ((MVCbansach.ProductService.IProduct)(this)).insertAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MVCbansach.ProductService.updateResponse MVCbansach.ProductService.IProduct.update(MVCbansach.ProductService.updateRequest request) {
-            return base.Channel.update(request);
+        public System.Threading.Tasks.Task<long> insertAsync(MVCbansach.ProductService.Product entity) {
+            return base.Channel.insertAsync(entity);
         }
         
         public bool update(MVCbansach.ProductService.Product entity) {
-            MVCbansach.ProductService.updateRequest inValue = new MVCbansach.ProductService.updateRequest();
-            inValue.entity = entity;
-            MVCbansach.ProductService.updateResponse retVal = ((MVCbansach.ProductService.IProduct)(this)).update(inValue);
-            return retVal.updateResult;
+            return base.Channel.update(entity);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.updateResponse> MVCbansach.ProductService.IProduct.updateAsync(MVCbansach.ProductService.updateRequest request) {
-            return base.Channel.updateAsync(request);
+        public System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.ProductService.Product entity) {
+            return base.Channel.updateAsync(entity);
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.ProductService.updateResponse> updateAsync(MVCbansach.ProductService.Product entity) {
-            MVCbansach.ProductService.updateRequest inValue = new MVCbansach.ProductService.updateRequest();
-            inValue.entity = entity;
-            return ((MVCbansach.ProductService.IProduct)(this)).updateAsync(inValue);
-        }
-        
-        public bool delete(long id) {
+        public bool delete(object id) {
             return base.Channel.delete(id);
         }
         
-        public System.Threading.Tasks.Task<bool> deleteAsync(long id) {
+        public System.Threading.Tasks.Task<bool> deleteAsync(object id) {
             return base.Channel.deleteAsync(id);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MVCbansach.ProductService.findProuctsByCategoryResponse MVCbansach.ProductService.IProduct.findProuctsByCategory(MVCbansach.ProductService.findProuctsByCategoryRequest request) {
-            return base.Channel.findProuctsByCategory(request);
+        public MVCbansach.ProductService.Product[] findProductsByCategory(long catId) {
+            return base.Channel.findProductsByCategory(catId);
         }
         
-        public MVCbansach.ProductService.Product[] findProuctsByCategory(int id) {
-            MVCbansach.ProductService.findProuctsByCategoryRequest inValue = new MVCbansach.ProductService.findProuctsByCategoryRequest();
-            inValue.id = id;
-            MVCbansach.ProductService.findProuctsByCategoryResponse retVal = ((MVCbansach.ProductService.IProduct)(this)).findProuctsByCategory(inValue);
-            return retVal.findProuctsByCategoryResult;
+        public System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findProductsByCategoryAsync(long catId) {
+            return base.Channel.findProductsByCategoryAsync(catId);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MVCbansach.ProductService.findProuctsByCategoryResponse> MVCbansach.ProductService.IProduct.findProuctsByCategoryAsync(MVCbansach.ProductService.findProuctsByCategoryRequest request) {
-            return base.Channel.findProuctsByCategoryAsync(request);
+        public MVCbansach.ProductService.Product[] findByKeyword(string key) {
+            return base.Channel.findByKeyword(key);
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.ProductService.findProuctsByCategoryResponse> findProuctsByCategoryAsync(int id) {
-            MVCbansach.ProductService.findProuctsByCategoryRequest inValue = new MVCbansach.ProductService.findProuctsByCategoryRequest();
-            inValue.id = id;
-            return ((MVCbansach.ProductService.IProduct)(this)).findProuctsByCategoryAsync(inValue);
+        public System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findByKeywordAsync(string key) {
+            return base.Channel.findByKeywordAsync(key);
+        }
+        
+        public MVCbansach.ProductService.Product[] findByPrice(decimal start, decimal end) {
+            return base.Channel.findByPrice(start, end);
+        }
+        
+        public System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> findByPriceAsync(decimal start, decimal end) {
+            return base.Channel.findByPriceAsync(start, end);
+        }
+        
+        public MVCbansach.ProductService.Product[] advanceSearch(string keyword, decimal startPrice, decimal endPrice, int catId) {
+            return base.Channel.advanceSearch(keyword, startPrice, endPrice, catId);
+        }
+        
+        public System.Threading.Tasks.Task<MVCbansach.ProductService.Product[]> advanceSearchAsync(string keyword, decimal startPrice, decimal endPrice, int catId) {
+            return base.Channel.advanceSearchAsync(keyword, startPrice, endPrice, catId);
         }
     }
 }

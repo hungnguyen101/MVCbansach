@@ -15,7 +15,7 @@ namespace MVCbansach.AccountService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/BookStoreService.EF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/BookstoreService.EF")]
     [System.SerializableAttribute()]
     public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -357,10 +357,12 @@ namespace MVCbansach.AccountService {
         System.Threading.Tasks.Task<MVCbansach.AccountService.Account[]> findAllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Account/findById", ReplyAction="http://tempuri.org/IModelOf_Account/findByIdResponse")]
-        MVCbansach.AccountService.Account findById(long id);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.AccountService.Account[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.AccountService.Account))]
+        MVCbansach.AccountService.Account findById(object id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Account/findById", ReplyAction="http://tempuri.org/IModelOf_Account/findByIdResponse")]
-        System.Threading.Tasks.Task<MVCbansach.AccountService.Account> findByIdAsync(long id);
+        System.Threading.Tasks.Task<MVCbansach.AccountService.Account> findByIdAsync(object id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Account/insert", ReplyAction="http://tempuri.org/IModelOf_Account/insertResponse")]
         long insert(MVCbansach.AccountService.Account entity);
@@ -375,10 +377,12 @@ namespace MVCbansach.AccountService {
         System.Threading.Tasks.Task<bool> updateAsync(MVCbansach.AccountService.Account entity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Account/delete", ReplyAction="http://tempuri.org/IModelOf_Account/deleteResponse")]
-        bool delete(long id);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.AccountService.Account[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MVCbansach.AccountService.Account))]
+        bool delete(object id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IModelOf_Account/delete", ReplyAction="http://tempuri.org/IModelOf_Account/deleteResponse")]
-        System.Threading.Tasks.Task<bool> deleteAsync(long id);
+        System.Threading.Tasks.Task<bool> deleteAsync(object id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccount/Authenticate", ReplyAction="http://tempuri.org/IAccount/AuthenticateResponse")]
         MVCbansach.AccountService.Account Authenticate(string username, string password);
@@ -434,11 +438,11 @@ namespace MVCbansach.AccountService {
             return base.Channel.findAllAsync();
         }
         
-        public MVCbansach.AccountService.Account findById(long id) {
+        public MVCbansach.AccountService.Account findById(object id) {
             return base.Channel.findById(id);
         }
         
-        public System.Threading.Tasks.Task<MVCbansach.AccountService.Account> findByIdAsync(long id) {
+        public System.Threading.Tasks.Task<MVCbansach.AccountService.Account> findByIdAsync(object id) {
             return base.Channel.findByIdAsync(id);
         }
         
@@ -458,11 +462,11 @@ namespace MVCbansach.AccountService {
             return base.Channel.updateAsync(entity);
         }
         
-        public bool delete(long id) {
+        public bool delete(object id) {
             return base.Channel.delete(id);
         }
         
-        public System.Threading.Tasks.Task<bool> deleteAsync(long id) {
+        public System.Threading.Tasks.Task<bool> deleteAsync(object id) {
             return base.Channel.deleteAsync(id);
         }
         

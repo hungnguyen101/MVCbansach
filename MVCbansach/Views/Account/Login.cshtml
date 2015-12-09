@@ -2,15 +2,13 @@
     ViewBag.Title = "Đăng nhập";
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
 }
-
 @model MVCbansach.Models.LoginModel
-
 @{ Html.RenderAction("LeftPartPartial", "Account"); }
 
 <!--Middle Part Start-->
 <div id="content">
     <!--Breadcrumb Part Start-->
-    <div class="breadcrumb"> <a href="@Url.Action("Index", "Home", null)">Trang chủ</a> » <a href="@Url.Action("Login", "Account", null)">Đăng nhập</a> </div>
+    <div class="breadcrumb"> <a href="@Url.Action("Index", "Home", null)">Trang chủ</a> » <a href="@Url.Action("Login", "Account")">Đăng nhập</a> </div>
     <!--Breadcrumb Part End-->
     <h1>Đăng nhập tài khoản</h1>
     <div class="login-content">
@@ -24,36 +22,74 @@
             <div class="content">
                 <p><b>Đăng ký tài khoản</b></p>
                 <p>Bằng việc tạo tài khoản giúp bạn mua hàng nhanh chóng và an toàn hơn, cập nhật trạng thái đặt hàng.</p>
-                <a class="button" href="@Url.Action("Register", "Account", null)">Tiếp tục</a>
+                <a class="button" href="@Url.Action("Register", "Account")">Tiếp tục</a>
             </div>
         </div>
         <div class="right">
             <h2>Đăng nhập</h2>
-            <p>@ViewBag.LoginFaild</p>
-            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { onsubmit = "return checkform()" }))
             {
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)     
                 <div class="content">
                     <b>@Html.LabelFor(Model=>Model.Username)</b><br>
-                    @Html.TextBoxFor(Model => Model.Username)
-                    @Html.ValidationMessageFor(Model => Model.Username)
+                    @Html.TextBoxFor(Model => Model.Username, new { @id = "username", @onkeyup = "return checkUsername()" })
                     
                     <br>
                     <br>
                     <b>@Html.LabelFor(Model=>Model.Password)</b><br>
-                    @Html.PasswordFor(Model => Model.Password)
-                    @Html.ValidationMessageFor(Model=>Model.Password)              
+                    @Html.PasswordFor(Model => Model.Password, new { @id = "password", @onkeyup = "return checkPassword()" })
                     <br>
                     <a href="#">Quên mật khẩu</a><br>
                     <br>
-                    <input type="submit" class="button" value="Đăng nhập">
+                    <input type="submit" class="button" onsubmit="return checkform()" value="Đăng nhập">
                 </div>
             }
         </div>
     </div>
 </div>
 <!--Middle Part End-->
+<script>
+    function checkUsername() {
+        var username = document.getElementById("username").value;
+        if (username.length < 3)
+        {
+            document.getElementById("username").style.borderColor = "#ff0000";
+            document.getElementById("username").style.backgroundColor = "#f3f3f3";
+        } else {
+            document.getElementById("username").style.borderColor = "#f3f3f3";
+            document.getElementById("username").style.backgroundColor = "white";
+        }
+    }
+    function checkPassword() {
+        var password = document.getElementById("password").value;
+        if (password.length < 3) {
+            document.getElementById("password").style.borderColor = "#ff0000";
+            document.getElementById("password").style.backgroundColor = "#f3f3f3";
+            
+        } else {
+            document.getElementById("password").style.borderColor = "#f3f3f3";
+            document.getElementById("password").style.backgroundColor = "white";
+        }
+    }
+    function checkform() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username == "")
+        {
+            document.getElementById("username").focus();
+            alert("Vui lòng nhập nhập mật khẩu"); return false;
+        } else if (username.length <3)
+        {
+            alert("Tên tài khoản phải lớn hơn 3 ký tự"); return false;
+        }
+        if (password == "") {
+            password.focus();
+            alert("Vui lòng nhập nhập mật khẩu"); return false;
+        } else if (password.length < 3) {
+            alert("Mật khẩu lớn hơn 3 ký tự"); return false;
+        }
+    }
+</script>
 
 
 

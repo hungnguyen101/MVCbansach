@@ -9,7 +9,6 @@ namespace MVCbansach.Controllers
 {
     public class HomeController : Controller
     {
-        BookStoreOnlineEntities db = new BookStoreOnlineEntities();
         ProductService.ProductClient productServ = new ProductService.ProductClient();
         ProductCategoryService.CategoryClient productCategoryServ = new ProductCategoryService.CategoryClient();
         // GET: TrangChu
@@ -21,7 +20,7 @@ namespace MVCbansach.Controllers
         }
         public PartialViewResult Part()
         {
-            return PartialView(db.Products.Take(10).ToList());
+            return PartialView(productCategoryServ.findAll().Take(10).ToList());
         }
     }
 }

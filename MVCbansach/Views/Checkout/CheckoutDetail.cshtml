@@ -1,0 +1,60 @@
+﻿@model List<MVCbansach.Models.Item>
+@{
+    ViewBag.Title = "Chi tiết hóa đơn";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<!--Middle Part Start-->
+<div id="content">
+    <div class="checkout">
+        <div class="checkout-heading">CHI TIẾT HÓA ĐƠN MÃ @ViewBag.OrderId </div>
+        <div class="checkout-content" style="display: block;">
+            <div class="checkout-product">
+                <table>
+
+
+                    <thead>
+                        <tr>
+                            <td class="name">Tên sách</td>
+                            <td class="model">Số lượng</td>
+                            <td class="quantity">Giá gốc</td>
+                            <td class="price">Giá khuyến mại</td>
+                            <td class="total">Tổng</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @{
+                            ViewBag.Total = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            ViewBag.Total = ViewBag.Total + (item.Quantity * item.Pr.PromotionPrice);
+                            <tr>
+                                <td class="name">@item.Pr.Name</td>
+                                <td class="model">@item.Quantity</td>
+                                <td class="quantity">@string.Format("{0:0,0}", item.Pr.Price)</td>
+                                <td class="price">@string.Format("{0:0,0}", item.Pr.PromotionPrice)</td>
+                               
+                                <td class="total">@string.Format("{0:0,0}", item.Quantity * item.Pr.PromotionPrice)</td>
+                                
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="price" colspan="4"><b>Tổng:</b></td>
+                            <td class="total">@string.Format("{0:0,0 ₫}", ViewBag.Total)</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="buttons">
+                <div class="right">
+                    <input type="button" class="button" id="button-confirm" value="Quay lại" onclick="location.href='@Url.Action("CheckoutList", "Checkout")'">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Middle Part End-->

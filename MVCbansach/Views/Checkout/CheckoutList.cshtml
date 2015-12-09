@@ -1,0 +1,55 @@
+﻿@model List<MVCbansach.OrderService.Order>
+@{
+    ViewBag.Title = "Danh sách hóa đơn";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<!--Middle Part Start-->
+<div id="content">
+    <h2>HÓA ĐƠN CỦA BẠN</h2>
+    <div class="checkout">
+        <div class="checkout-content" style="display: block;">
+            @if (Session["SuccessMessage"] != null)
+            {
+                <p class="success">@Session["SuccessMessage"] </p>
+                Session["SuccessMessage"] = null;
+            }
+            <div class="checkout-product">
+                <table>
+                    
+
+                    <thead>
+                        <tr>
+                            <td class="name">ID</td>
+                            <td class="model">Thời gian đặt hàng</td>
+                            <td class="price">Trạng thái</td>
+                            <td class="total">Xem chi tiết</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (MVCbansach.OrderService.Order item in Model)
+                        {
+                            <tr>
+                                <td class="name">@item.id</td>
+                                <td class="model">@item.CreatedAt</td>
+                                <td class="price">
+                                @if (item.Status == false)
+                                {
+                                    <span style="color:red">chưa giao hàng</span>
+                                }
+                                else
+                                {
+                                    <span style="color:green">đã giao hàng</span>
+                                }
+                                 </td>
+                                <td class="total"><a href="@Url.Action("CheckoutDetail", "Checkout", new { OrderId = item.id })"><b style="color:purple">Xem chi tiết</b></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Middle Part End-->
